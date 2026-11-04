@@ -81,7 +81,7 @@ html { background: #241713; }
   backdrop-filter: blur(22px) saturate(1.7);
   border-top: 1px solid rgba(244,238,228,.16);
 }
-.sticky-cta .btn-line-light { background: rgba(244,238,228,.1); color: #F4EEE4; border-color: rgba(244,238,228,.5); }
+.sticky-cta .btn-line-light { background: #2E1F19; color: #F4EEE4; border-color: #2E1F19; }
 .sticky-cta .btn-light { background: rgba(221,208,190,.94); }
 @media (max-width: 767px) { body { padding-bottom: 0; } footer { padding-bottom: 76px; } }
 .nav[data-solid="true"] { background: rgba(244,238,228,.72); -webkit-backdrop-filter: blur(20px) saturate(1.6); backdrop-filter: blur(20px) saturate(1.6); }
