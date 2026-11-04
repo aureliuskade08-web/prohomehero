@@ -73,5 +73,7 @@
 .lb-cta { position:absolute; bottom:1.25rem; left:50%; transform:translateX(-50%); }
 @media (max-width: 640px) { .lb-prev, .lb-next { top:auto; bottom:1.25rem; } .lb-cta { display:none; } }
 
-/* leave room for the sticky mobile CTA */
-@media (max-width: 767px) { body { padding-bottom: 72px; } }
+/* iOS Safari: dark page edge + sticky bar that runs under the browser toolbar (no light strip) */
+html { background: #241713; }
+.sticky-cta { padding-bottom: calc(.75rem + env(safe-area-inset-bottom, 0px)); }
+@media (max-width: 767px) { body { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); } }
