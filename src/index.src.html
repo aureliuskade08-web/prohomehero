@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pro Home Hero | Kitchen Remodeling</title>
+  <meta name="description" content="Pro Home Hero designs and remodels kitchens: cabinets, countertops, backsplash, lighting and flooring from one team. Request a free estimate." />
+  <meta name="theme-color" content="#241713" />
+  <meta property="og:title" content="Pro Home Hero | Kitchen Remodeling" />
+  <meta property="og:description" content="Full kitchen remodeling from one team. See our recent kitchens and request a free estimate." />
+  <meta property="og:image" content="images/kitchen-09.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tailwind.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23241713'/%3E%3Cpath d='M8 23V10h5.2c3 0 4.6 1.5 4.6 3.9s-1.7 4-4.7 4H11V23z M11 15.9h2c1.3 0 2-.6 2-1.9s-.7-1.8-2-1.8h-2z' fill='%23DDD0BE'/%3E%3Crect x='20' y='10' width='3' height='13' fill='%238A6A45'/%3E%3C/svg%3E" />
+</head>
+
+<body data-phone="+15555550123" data-phone-display="(555) 555-0123" data-email="hello@prohomehero.com">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-linen focus:px-5 focus:py-3">Skip to content</a>
+
+  <!-- NAV -->
+  <header id="nav" class="nav fixed inset-x-0 top-0 z-50" data-solid="false">
+    <div class="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-5 md:px-10">
+      <a href="#top" class="nav-logo font-display text-[1.7rem] leading-none tracking-tight" aria-label="Pro Home Hero, home">Pro Home Hero</a>
+      <nav class="hidden items-center gap-9 text-[0.95rem] font-medium lg:flex" aria-label="Primary">
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#design">Design your kitchen</a>
+        <a class="nav-link" href="#process">Process</a>
+        <a class="nav-link" href="#about">About</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a data-tel class="nav-phone hidden text-[0.95rem] font-semibold xl:inline" href="tel:+15555550123"><span data-phone-text>(555) 555-0123</span></a>
+        <a href="#estimate" class="btn nav-cta hidden min-h-[44px] px-6 sm:inline-flex">Get a free estimate</a>
+        <button id="menuBtn" class="nav-burger grid h-11 w-11 place-items-center rounded-full lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden bg-espresso text-linen" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="flex h-[72px] items-center justify-between px-5">
+      <span class="font-display text-[1.7rem]">Pro Home Hero</span>
+      <button id="menuClose" class="grid h-11 w-11 place-items-center rounded-full" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-1 px-5 pt-6 font-display text-[2.6rem] leading-[1.15]" aria-label="Mobile">
+      <a href="#portfolio">Portfolio</a><a href="#services">Services</a><a href="#design">Design your kitchen</a><a href="#process">Process</a><a href="#about">About</a>
+    </nav>
+    <div class="absolute inset-x-5 bottom-8 grid gap-3">
+      <a href="#estimate" class="btn btn-light">Get a free estimate</a>
+      <a data-tel href="tel:+15555550123" class="btn btn-line-light">Call <span data-phone-text>(555) 555-0123</span></a>
+    </div>
+  </div>
+
+  <main id="main">
+  <!-- HERO -->
+  <section id="top" class="hero relative isolate overflow-hidden bg-espresso text-linen" aria-labelledby="heroTitle">
+    <div id="stream" class="stream absolute inset-0"></div>
+    <div class="hero-scrim pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col items-center px-5 pt-[116px] text-center md:px-10 md:pt-[132px]">
+      <h1 id="heroTitle" class="hero-in max-w-[17ch] text-balance text-[clamp(2.7rem,6.2vw,5.6rem)] text-bone" style="--d:.15s">
+        The kitchen you've been picturing, built right.
+      </h1>
+      <p class="hero-in mt-6 max-w-[46ch] text-[1.05rem] text-linen/90 md:text-lg" style="--d:.35s">
+        Full kitchen remodeling, from cabinets and countertops to lighting and flooring, handled by one team.
+      </p>
+      <div class="hero-in mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center" style="--d:.55s">
+        <a href="#estimate" class="btn btn-light">Get a free estimate</a>
+        <a href="#portfolio" class="btn btn-line-light backdrop-blur-sm">See our kitchens</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section id="about" class="mx-auto max-w-[1440px] px-5 py-24 md:px-10 md:py-36">
+    <div class="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-6">
+        <img src="images/kitchen-09.jpg" alt="White quartz island with brass and leather stools under a chandelier" class="aspect-[4/5] w-full object-cover" loading="lazy" width="900" height="1600" />
+      </div>
+      <div class="md:col-span-5 md:col-start-8">
+        <h2 class="text-[clamp(2.4rem,4.6vw,4.2rem)]">A designer's eye. A builder's discipline.</h2>
+        <p class="mt-7 max-w-[52ch]">
+          Pro Home Hero remodels kitchens for homeowners who want the room to look right and work every day. We help you choose the layout, cabinets, stone and fixtures, then build it ourselves, so the plan on paper is the kitchen you get.
+        </p>
+        <p class="mt-4 max-w-[52ch]">
+          Every kitchen on this page is a real project from our crew.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <a href="#estimate" class="btn btn-dark">Start your project</a>
+          <a href="#process" class="link-u">See how we work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="pb-24 md:pb-36" aria-labelledby="portfolioTitle">
+    <div class="mx-auto max-w-[1440px] px-5 md:px-10">
+      <div class="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 id="portfolioTitle" class="text-[clamp(2.8rem,6vw,5.5rem)]">Portfolio</h2>
+          <p class="mt-3 text-lg text-espresso/75">Recent kitchen remodels</p>
+        </div>
+        <a href="#estimate" class="btn btn-dark self-start md:self-auto">Get a kitchen like these</a>
+      </div>
+
+      <ul id="gallery" class="gallery grid grid-cols-2 gap-x-3 gap-y-10 sm:gap-x-6 md:grid-cols-3 md:gap-x-8 md:gap-y-16 xl:grid-cols-4">
+<!--GALLERY-->
+      </ul>
+
+      <div class="mt-16 flex justify-center">
+        <button id="moreBtn" class="btn btn-line-dark" type="button" aria-expanded="false">See more projects</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="bg-olive text-linen" aria-labelledby="servicesTitle">
+    <div class="mx-auto grid max-w-[1440px] gap-14 px-5 py-24 md:grid-cols-12 md:px-10 md:py-36">
+      <div class="md:col-span-4">
+        <h2 id="servicesTitle" class="text-[clamp(2.6rem,5vw,4.6rem)] text-bone">What we build</h2>
+        <p class="mt-6 max-w-[34ch] text-linen/90">Everything a kitchen remodel needs, so you're not coordinating six different trades.</p>
+        <a href="#estimate" class="btn btn-light mt-9">Request a quote</a>
+      </div>
+      <ul class="md:col-span-8 md:col-start-5">
+        <li class="svc"><a href="#estimate" data-service="Full kitchen remodel"><h3>Full kitchen remodels</h3><p>Layout, demolition, build-out and finish work. One team from first sketch to final walkthrough.</p></a></li>
+        <li class="svc"><a href="#estimate" data-service="Cabinets"><h3>Cabinets and storage</h3><p>Shaker cabinetry in white, navy, gray or wood tones, with pantry towers and glass-front uppers where they earn their space.</p></a></li>
+        <li class="svc"><a href="#estimate" data-service="Countertops and backsplash"><h3>Countertops and backsplash</h3><p>Quartz and granite counters, full-height slab backsplash or classic subway tile.</p></a></li>
+        <li class="svc"><a href="#estimate" data-service="Islands and seating"><h3>Islands and seating</h3><p>Islands sized to the room, with overhang for stools and storage on the working side.</p></a></li>
+        <li class="svc"><a href="#estimate" data-service="Sinks and fixtures"><h3>Sinks, faucets and fixtures</h3><p>Farmhouse and workstation sinks, pull-down faucets, pot fillers and hardware in brass or matte black.</p></a></li>
+        <li class="svc"><a href="#estimate" data-service="Lighting and flooring"><h3>Lighting and flooring</h3><p>Pendants, recessed and under-cabinet lighting, plus plank and tile floors that hold up to daily use.</p></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3D DESIGNER -->
+  <section id="design" class="design relative overflow-hidden bg-espresso text-linen" aria-labelledby="designTitle">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-5 py-24 md:px-10 md:py-32 lg:grid-cols-12 lg:gap-14">
+      <div class="lg:col-span-4">
+        <h2 id="designTitle" class="text-[clamp(2.6rem,5vw,4.4rem)] text-bone">Try your finishes before you commit</h2>
+        <p class="mt-6 max-w-[40ch] text-linen/90">Pick cabinet color, hardware and counters, then drag the room to look around. Send us your combination and we'll quote it.</p>
+
+        <div class="mt-9 grid gap-7" id="finishes" role="group" aria-label="Kitchen finishes"></div>
+
+        <div class="mt-10 border-t border-linen/20 pt-7">
+          <p id="designSummary" class="text-sm text-linen/80" aria-live="polite"></p>
+          <a id="designCta" href="#estimate" class="btn btn-light mt-5 w-full sm:w-auto">Quote this kitchen</a>
+        </div>
+      </div>
+      <div class="lg:col-span-8">
+        <div id="kitchen3d" class="kitchen3d relative aspect-[4/5] w-full overflow-hidden rounded-[2px] sm:aspect-[16/11]">
+          <p class="pointer-events-none absolute bottom-4 left-5 z-10 text-sm text-linen/70">Drag to rotate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="mx-auto max-w-[1440px] px-5 py-24 md:px-10 md:py-36" aria-labelledby="processTitle">
+    <h2 id="processTitle" class="max-w-[16ch] text-[clamp(2.6rem,5vw,4.6rem)]">How a remodel with us works</h2>
+    <ol class="mt-16 grid gap-x-10 gap-y-12 md:grid-cols-4">
+      <li class="border-t border-espresso pt-6"><span class="font-display text-4xl text-camel">1</span><h3 class="mt-4 text-[1.9rem]">Free consultation</h3><p class="mt-3 text-espresso/80">We visit your kitchen, listen to how you use it and measure the space.</p></li>
+      <li class="border-t border-espresso pt-6"><span class="font-display text-4xl text-camel">2</span><h3 class="mt-4 text-[1.9rem]">Design and quote</h3><p class="mt-3 text-espresso/80">You choose layout and finishes. You get a written estimate before any work begins.</p></li>
+      <li class="border-t border-espresso pt-6"><span class="font-display text-4xl text-camel">3</span><h3 class="mt-4 text-[1.9rem]">Build</h3><p class="mt-3 text-espresso/80">Our crew handles demolition through finish work, and keeps you posted along the way.</p></li>
+      <li class="border-t border-espresso pt-6"><span class="font-display text-4xl text-camel">4</span><h3 class="mt-4 text-[1.9rem]">Final walkthrough</h3><p class="mt-3 text-espresso/80">We go through the finished kitchen with you and fix anything that isn't right.</p></li>
+    </ol>
+    <div class="mt-14"><a href="#estimate" class="btn btn-dark">Book your free consultation</a></div>
+  </section>
+
+  <!-- ESTIMATE -->
+  <section id="estimate" class="bg-linen" aria-labelledby="estimateTitle">
+    <div class="mx-auto grid max-w-[1440px] gap-14 px-5 py-24 md:px-10 md:py-32 lg:grid-cols-12 lg:gap-20">
+      <div class="lg:col-span-6">
+        <h2 id="estimateTitle" class="text-[clamp(2.6rem,5vw,4.6rem)]">Let's talk about your kitchen</h2>
+        <p class="mt-5 max-w-[46ch]">Tell us a little about the project. We'll reply to set up a free consultation.</p>
+
+        <form id="estimateForm" class="mt-10 grid gap-6" novalidate>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <label class="block"><span class="text-sm font-semibold">Name</span><input class="field" name="name" autocomplete="name" required /></label>
+            <label class="block"><span class="text-sm font-semibold">Phone</span><input class="field" name="phone" type="tel" autocomplete="tel" required /></label>
+          </div>
+          <label class="block"><span class="text-sm font-semibold">Email</span><input class="field" name="email" type="email" autocomplete="email" required /></label>
+          <label class="block"><span class="text-sm font-semibold">What are you planning?</span>
+            <select class="field" name="service" id="serviceSel">
+              <option>Full kitchen remodel</option><option>Cabinets</option><option>Countertops and backsplash</option><option>Islands and seating</option><option>Sinks and fixtures</option><option>Lighting and flooring</option><option>Not sure yet</option>
+            </select>
+          </label>
+          <label class="block"><span class="text-sm font-semibold">Anything we should know?</span><textarea class="field min-h-[96px] resize-y" name="message" id="messageBox" rows="3"></textarea></label>
+          <p id="formStatus" class="min-h-[1.5rem] text-sm font-semibold" role="status" aria-live="polite"></p>
+          <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+            <button class="btn btn-dark" type="submit">Request my free estimate</button>
+            <a data-tel href="tel:+15555550123" class="link-u">Or call <span data-phone-text>(555) 555-0123</span></a>
+          </div>
+        </form>
+      </div>
+      <div class="hidden lg:col-span-5 lg:col-start-8 lg:block">
+        <img src="images/kitchen-07.jpg" alt="Cream cabinets with glass-front uppers, brass pulls and a quartz slab backsplash" class="aspect-[4/5] w-full object-cover" loading="lazy" width="900" height="1600" />
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-espresso text-linen">
+    <div class="mx-auto grid max-w-[1440px] gap-14 px-5 py-20 md:grid-cols-12 md:px-10">
+      <div class="md:col-span-5">
+        <p class="font-display text-[2.6rem] leading-none text-bone">Pro Home Hero</p>
+        <p class="mt-4 max-w-[34ch] text-linen/80">Kitchen remodeling, designed and built by one team.</p>
+        <form id="newsForm" class="mt-9 max-w-md" novalidate>
+          <label for="newsEmail" class="text-sm font-semibold">Get kitchen ideas by email</label>
+          <div class="mt-2 flex gap-3 border-b border-linen/50 pb-2">
+            <input id="newsEmail" name="email" type="email" required autocomplete="email" placeholder="Your email" class="w-full border-0 bg-transparent px-0 text-linen placeholder:text-linen/50 focus:ring-0 focus:outline-none" />
+            <button class="shrink-0 font-semibold hover:text-bone" type="submit">Sign up</button>
+          </div>
+          <p id="newsStatus" class="mt-2 min-h-[1.25rem] text-sm" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="grid grid-cols-2 gap-10 md:col-span-6 md:col-start-7">
+        <div>
+          <p class="font-semibold text-bone">Explore</p>
+          <ul class="mt-4 grid gap-2 text-linen/85">
+            <li><a class="hover:text-bone" href="#portfolio">Portfolio</a></li><li><a class="hover:text-bone" href="#services">Services</a></li><li><a class="hover:text-bone" href="#design">Design your kitchen</a></li><li><a class="hover:text-bone" href="#process">Process</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-bone">Contact</p>
+          <ul class="mt-4 grid gap-2 text-linen/85">
+            <li><a data-tel class="hover:text-bone" href="tel:+15555550123"><span data-phone-text>(555) 555-0123</span></a></li>
+            <li><a data-mail class="hover:text-bone" href="mailto:hello@prohomehero.com"><span data-email-text>hello@prohomehero.com</span></a></li>
+            <li><a class="hover:text-bone" href="#estimate">Free estimate</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-linen/15">
+      <p class="mx-auto max-w-[1440px] px-5 py-6 text-sm text-linen/60 md:px-10">© <span id="yr">2026</span> Pro Home Hero. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTA -->
+  <div class="sticky-cta fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-linen/20 bg-espresso/95 p-3 backdrop-blur md:hidden" id="stickyCta">
+    <a data-tel href="tel:+15555550123" class="btn btn-line-light min-h-[44px]">Call us</a>
+    <a href="#estimate" class="btn btn-light min-h-[44px]">Free estimate</a>
+  </div>
+
+  <!-- Lightbox -->
+  <dialog id="lightbox" class="lightbox" aria-label="Project photo">
+    <button class="lb-btn lb-close" id="lbClose" aria-label="Close">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Next photo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    <figure class="lb-fig"><img id="lbImg" alt="" /><figcaption id="lbCap"></figcaption></figure>
+    <a href="#estimate" class="btn btn-light lb-cta" id="lbCta">Get a kitchen like this</a>
+  </dialog>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
