@@ -1,0 +1,123 @@
+FAIL 34 css/styles.css:64 width: 100vw on .lightbox (scrollbar overflow) | fix: width: 100% with container padding
+FAIL 34 css/tailwind.css:1 no overflow-x: clip on html and body | fix: overflow-x: clip on both html and body
+FAIL 48 css/styles.css:4 colour literal #DDD0BE outside tokens (color on .nav) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:8 colour literal #DDD0BE outside tokens (background on .nav .nav-cta) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:8 colour literal #241713 outside tokens (color on .nav .nav-cta) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:9 colour literal #F4EEE4 outside tokens (background on .nav .nav-cta:hover) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:10 colour literal rgba(244,238,228,.94) outside tokens (background on .nav[data-solid="true"]) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:10 colour literal #241713 outside tokens (color on .nav[data-solid="true"]) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:10 colour literal rgba(36,23,19,.12) outside tokens (box-shadow on .nav[data-solid="true"]) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:11 colour literal #241713 outside tokens (background on .nav[data-solid="true"] .nav-…) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:11 colour literal #F4EEE4 outside tokens (color on .nav[data-solid="true"] .nav-…) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:12 colour literal #6B3426 outside tokens (background on .nav[data-solid="true"] .nav-…) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:17 colour literal rgba(36,23,19,.88) outside tokens (background on .hero-scrim) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:17 colour literal rgba(36,23,19,.55) outside tokens (background on .hero-scrim) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:17 colour literal rgba(36,23,19,.7) outside tokens (background on .hero-scrim) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:32 colour literal #DDD0BE outside tokens (background on .gallery .g-btn) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:35 colour literal rgba(36,23,19,.75) outside tokens (color on .gallery .g-cap) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:43 colour literal rgba(221,208,190,.3) outside tokens (border-top on .svc) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:44 colour literal rgba(221,208,190,.3) outside tokens (border-bottom on .svc:last-child) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:47 colour literal #F4EEE4 outside tokens (color on .svc h3) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:48 colour literal rgba(221,208,190,.9) outside tokens (color on .svc p) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:49 colour literal rgba(36,23,19,.18) outside tokens (background on .svc a:hover, .svc a:focus-vi…) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:53 colour literal #4A3A30 outside tokens (background on .kitchen3d) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:53 colour literal #2E1F19 outside tokens (background on .kitchen3d) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:53 colour literal #241713 outside tokens (background on .kitchen3d) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:55 colour literal #F4EEE4 outside tokens (color on .opt-group legend) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:57 colour literal rgba(221,208,190,.35) outside tokens (border on .opt) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:57 colour literal #DDD0BE outside tokens (color on .opt) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:58 colour literal #DDD0BE outside tokens (border-color on .opt:hover) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:59 colour literal #DDD0BE outside tokens (background on .opt[aria-pressed="true"]) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:59 colour literal #241713 outside tokens (color on .opt[aria-pressed="true"]) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:59 colour literal #DDD0BE outside tokens (border-color on .opt[aria-pressed="true"]) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:60 colour literal rgba(255,255,255,.35) outside tokens (border on .opt i) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:61 colour literal rgba(36,23,19,.5) outside tokens (border-color on .opt[aria-pressed="true"] i) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:64 colour literal #DDD0BE outside tokens (color on .lightbox) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:65 colour literal rgba(26,16,13,.94) outside tokens (background on .lightbox::backdrop) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:69 colour literal #DDD0BE outside tokens (color on .lb-fig figcaption) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:70 colour literal #DDD0BE outside tokens (color on .lb-btn) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:70 colour literal rgba(221,208,190,.4) outside tokens (border on .lb-btn) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:70 colour literal rgba(36,23,19,.5) outside tokens (background on .lb-btn) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:71 colour literal #DDD0BE outside tokens (background on .lb-btn:hover) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:71 colour literal #241713 outside tokens (color on .lb-btn:hover) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:79 colour literal rgba(36,23,19,.66) outside tokens (background on .sticky-cta) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:82 colour literal rgba(244,238,228,.16) outside tokens (border-top on .sticky-cta) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:84 colour literal #2E1F19 outside tokens (background on .sticky-cta .btn-line-light) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:84 colour literal #F4EEE4 outside tokens (color on .sticky-cta .btn-line-light) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:84 colour literal #2E1F19 outside tokens (border-color on .sticky-cta .btn-line-light) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:85 colour literal rgba(221,208,190,.94) outside tokens (background on .sticky-cta .btn-light) | fix: Lift the value into the token block
+FAIL 48 css/styles.css:87 colour literal rgba(244,238,228,.72) outside tokens (background on .nav[data-solid="true"]) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #fff outside tokens (--tw-ring-offset-color on *,:after,:before) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(59,130,246,.5) outside tokens (--tw-ring-color on *,:after,:before) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #fff outside tokens (--tw-ring-offset-color on ::backdrop) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(59,130,246,.5) outside tokens (--tw-ring-color on ::backdrop) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #e5e7eb outside tokens (border on *,:after,:before) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 font-family literal "Hanken Grotesk,system-ui,sans-serif" on :host,html | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #9ca3af outside tokens (color on input::-moz-placeholder,texta…) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #9ca3af outside tokens (color on input::placeholder,textarea::…) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(244 238 228/var(--tw-bg-o… outside tokens (background-color on body) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 font-family literal "Hanken Grotesk,system-ui,sans-serif" on body | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-text-op… outside tokens (color on body) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 font-family literal ""Instrument Serif",Georgia,serif" on h1,h2,h3 | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #8a6a45 outside tokens (outline on :focus-visible) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #6b3426 outside tokens (background on ::-moz-selection) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #f4eee4 outside tokens (color on ::-moz-selection) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #6b3426 outside tokens (background on ::selection) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal #f4eee4 outside tokens (color on ::selection) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-bg-opac… outside tokens (background-color on .btn-dark) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(244 238 228/var(--tw-text… outside tokens (color on .btn-dark) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(107 52 38/var(--tw-bg-opa… outside tokens (background-color on .btn-dark:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(221 208 190/var(--tw-bg-o… outside tokens (background-color on .btn-light) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-text-op… outside tokens (color on .btn-light) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(244 238 228/var(--tw-bg-o… outside tokens (background-color on .btn-light:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(36,23,19,.4) outside tokens (border-color on .btn-line-dark) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-text-op… outside tokens (color on .btn-line-dark) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-border-… outside tokens (border-color on .btn-line-dark:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-bg-opac… outside tokens (background-color on .btn-line-dark:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(244 238 228/var(--tw-text… outside tokens (color on .btn-line-dark:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.5) outside tokens (border-color on .btn-line-light) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(221 208 190/var(--tw-text… outside tokens (color on .btn-line-light) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(221 208 190/var(--tw-bord… outside tokens (border-color on .btn-line-light:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(221 208 190/var(--tw-bg-o… outside tokens (background-color on .btn-line-light:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-text-op… outside tokens (color on .btn-line-light:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(107 52 38/var(--tw-text-o… outside tokens (color on .link-u:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(36,23,19,.4) outside tokens (border-color on .field) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-text-op… outside tokens (color on .field) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(36,23,19,.5) outside tokens (color on .field::-moz-placeholder) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(36,23,19,.5) outside tokens (color on .field::placeholder) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-border-… outside tokens (border-color on .field:focus) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-border-… outside tokens (border-color on .border-espresso) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.15) outside tokens (border-color on .border-linen\/15) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.2) outside tokens (border-color on .border-linen\/20) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.5) outside tokens (border-color on .border-linen\/50) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(36 23 19/var(--tw-bg-opac… outside tokens (background-color on .bg-espresso) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(221 208 190/var(--tw-bg-o… outside tokens (background-color on .bg-linen) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(79 90 60/var(--tw-bg-opac… outside tokens (background-color on .bg-olive) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 font-family literal ""Instrument Serif",Georgia,serif" on .font-display | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(244 238 228/var(--tw-text… outside tokens (color on .text-bone) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(138 106 69/var(--tw-text-… outside tokens (color on .text-camel) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(36,23,19,.75) outside tokens (color on .text-espresso\/75) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(36,23,19,.8) outside tokens (color on .text-espresso\/80) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(221 208 190/var(--tw-text… outside tokens (color on .text-linen) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.6) outside tokens (color on .text-linen\/60) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.7) outside tokens (color on .text-linen\/70) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.8) outside tokens (color on .text-linen\/80) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.85) outside tokens (color on .text-linen\/85) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.9) outside tokens (color on .text-linen\/90) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgba(0,0,0,.1) outside tokens (--tw-shadow on .shadow) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal hsla(35,31%,81%,.5) outside tokens (color on .placeholder\:text-linen\/50:…) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(244 238 228/var(--tw-text… outside tokens (color on .hover\:text-bone:hover) | fix: Lift the value into the token block
+FAIL 48 css/tailwind.css:1 colour literal rgb(221 208 190/var(--tw-bg-o… outside tokens (background-color on .focus\:bg-linen:focus) | fix: Lift the value into the token block
+FAIL 76 index.html:361 an <img> with no source | fix: Give it the real image, make it a data-slot placeholder, or remove it
+REFLEX 26b css/tailwind.css:1 no :active styling anywhere | fix: All eight states; guard: not a form control, no aria-disabled anywhere
+WARN 10b css/styles.css:45 transitioning padding-left on .svc a | fix: Animate transform or opacity instead
+WARN 11 css/styles.css:34 image transforms on hover (.gallery .g-btn:hover img, .gallery .g-btn:focus-visible img) | fix: Imagery sits still; give the container the feedback
+WARN 19 index.html:344 template footer line: "All rights reserved" | fix: A stock line with no legal effect; cut it unless the owner wants it
+WARN 29 css/styles.css:10 glass panel: backdrop-filter blur over a translucent white on .nav[data-solid="true"] | fix: Solid or grained surface; elevation by lightness
+WARN 29 css/styles.css:80 glass panel: backdrop-filter blur over a translucent black on .sticky-cta | fix: Solid or grained surface; elevation by lightness
+WARN 49 index.html:275 long clickable label "Book your free consultation" without nowrap | fix: Shorten the label or set nowrap
+WARN 58 index.html:1 552 visible words on the page (450 at most) | fix: Cut copy: one idea per screen, sections become objects
+WARN 58 index.html:71 hero paragraph runs 15 words | fix: One sentence, twelve words or fewer
+WARN F1 index.html:69 straight quote in prose x8 (first: The kitchen you've been pictur) | fix: Use typographic quotes: “ ” ’
+WARN F3 css/tailwind.css:1 no text-wrap: balance on any display head (4 head rule(s), e.g. h1,h2,h3,h4,h5,h6) | fix: Add text-wrap: balance to h1/h2-level heads
+WARN F4 index.html:76 two filled buttons side by side in the hero: "Get a free estimate" and "See our kitchens" | fix: One filled primary per screen; the second action is outlined or a typographic link

@@ -1,5 +1,3 @@
-import { mountImageStream } from "./stream.js";
-
 /* ------------------------------------------------------------------
  * SITE SETTINGS. Replace these with Pro Home Hero's real details.
  * The phone and email below are PLACEHOLDERS.
@@ -22,15 +20,10 @@ $$("[data-mail]").forEach((a) => (a.href = `mailto:${SITE.email}`));
 $$("[data-email-text]").forEach((n) => (n.textContent = SITE.email));
 $("#yr").textContent = new Date().getFullYear();
 
-/* nav: solid after the hero text */
-const nav = $("#nav");
-const setNav = () => (nav.dataset.solid = scrollY > 40 ? "true" : "false");
-setNav(); addEventListener("scroll", setNav, { passive: true });
-
 /* mobile menu */
 const menu = $("#mobileMenu"), burger = $("#menuBtn");
 const toggleMenu = (open) => {
-  menu.classList.toggle("hidden", !open);
+  menu.hidden = !open;
   burger.setAttribute("aria-expanded", String(open));
   document.body.style.overflow = open ? "hidden" : "";
   if (open) $("#menuClose").focus(); else burger.focus();
@@ -38,15 +31,7 @@ const toggleMenu = (open) => {
 burger.addEventListener("click", () => toggleMenu(true));
 $("#menuClose").addEventListener("click", () => toggleMenu(false));
 $$("a", menu).forEach((a) => a.addEventListener("click", () => toggleMenu(false)));
-addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.classList.contains("hidden")) toggleMenu(false); });
-
-/* ---------------- hero: the image stream ---------------- */
-const HERO = [9, 1, 2, 10, 4, 7, 8, 3, 14, 11, 15, 5, 6, 12, 13, 16, 17].map((n) => ({
-  src: `images/kitchen-${String(n).padStart(2, "0")}.jpg`,
-}));
-const stream = mountImageStream($("#stream"), HERO, { cards: 9, speed: 22, axis: innerWidth < 768 ? 74 : 68 });
-// stop animating once the hero is off screen
-new IntersectionObserver(([e]) => (e.isIntersecting ? stream.play() : stream.pause()), { threshold: 0 }).observe($("#top"));
+addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) toggleMenu(false); });
 
 /* ---------------- portfolio: reveal + lightbox ---------------- */
 const moreBtn = $("#moreBtn");
@@ -108,7 +93,7 @@ async function bootKitchen() {
     k.init();
   } catch (err) {
     console.error(err);
-    host.innerHTML = `<p class="grid h-full place-items-center p-8 text-center text-linen/80">The 3D designer needs WebGL. You can still tell us what you have in mind below.</p>`;
+    host.innerHTML = `<p class="kitchen3d__hint">The 3D designer needs WebGL. You can still tell us what you have in mind below.</p>`;
   }
 }
 new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); bootKitchen(); } }, { rootMargin: "400px" }).observe(host);
@@ -135,7 +120,7 @@ async function send(payload, statusEl, okMsg, subject) {
     }
     const body = Object.entries(payload).map(([k, v]) => `${k}: ${v}`).join("\n");
     location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    statusEl.textContent = "Your email app should open with the details filled in. Just press send.";
+    statusEl.textContent = "Your email app should open with the details filled in. Nothing is sent until you press send there.";
     return true;
   } catch {
     statusEl.textContent = `Something went wrong sending that. Please call ${SITE.phoneDisplay} or try again.`;
@@ -151,13 +136,5 @@ $("#estimateForm").addEventListener("submit", async (e) => {
   }
   if (await send({ form: "estimate", ...d }, st, "Thanks, we got it. We'll be in touch to set up your free consultation.", "Free estimate request")) {
     if (SITE.FORM_ENDPOINT) f.reset();
-  }
-});
-$("#newsForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const st = $("#newsStatus"), email = $("#newsEmail").value.trim();
-  if (!/^\S+@\S+\.\S+$/.test(email)) { st.textContent = "Enter a valid email address."; return; }
-  if (await send({ form: "newsletter", email }, st, "You're on the list.", "Kitchen ideas sign-up")) {
-    if (SITE.FORM_ENDPOINT) e.target.reset();
   }
 });

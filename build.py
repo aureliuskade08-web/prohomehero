@@ -21,6 +21,7 @@ CAPTIONS = {
  16: "Stainless farmhouse sink with a matte black pull-down faucet",
  17: "Quartz island with a pendant light and stainless refrigerator",
 }
+SHORT = {1:"White shaker, walnut island",2:"Quartz slab, brass faucet",3:"Navy cabinets, floating shelves",4:"Granite, farmhouse sink",5:"Farmhouse sink, black hardware",6:"Workstation sink, granite",7:"Cream cabinets, glass fronts",8:"Brass pot filler, slab backsplash",9:"Quartz island, brass and leather",10:"Two-tone, white and navy",11:"Sink set into quartz",12:"Full-height pantry cabinets",13:"Two-tone, plank flooring",14:"Island with pendant light",15:"Gray shaker, glass uppers",16:"Stainless farmhouse sink",17:"Island, stainless refrigerator"}
 # Photos shown before "See more projects" (best 8), rest are revealed on click.
 ORDER = [9, 2, 10, 7, 4, 8, 3, 14, 1, 11, 15, 5, 6, 12, 13, 16, 17]
 FIRST = 8
@@ -34,7 +35,7 @@ for pos, n in enumerate(ORDER):
         f'          <button type="button" class="g-btn" data-i="{pos}" data-src="images/kitchen-{n:02d}.jpg" data-cap="{cap}" aria-label="View photo: {cap}">\n'
         f'            <img src="images/kitchen-{n:02d}.jpg" alt="{cap}" loading="lazy" width="900" height="1600" />\n'
         f'          </button>\n'
-        f'          <p class="g-cap">{cap}</p>\n'
+        f'          <p class="g-cap">{html.escape(SHORT[n])}</p>\n'
         f'        </li>'
     )
 

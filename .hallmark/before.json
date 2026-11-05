@@ -1,0 +1,157 @@
+{
+ "v": 1,
+ "at": "2026-11-05T05:21:08.446Z",
+ "scope": "page",
+ "summary": {
+  "fails": 111,
+  "reflex": 1,
+  "warns": 11
+ },
+ "files": {
+  "index.html": {
+   "handlers": [],
+   "links": [
+    "#about",
+    "#design",
+    "#estimate",
+    "#main",
+    "#portfolio",
+    "#process",
+    "#services",
+    "#top",
+    "mailto:hello@prohomehero.com",
+    "tel:+15555550123"
+   ],
+   "fields": [
+    "email",
+    "message",
+    "name",
+    "phone",
+    "service"
+   ],
+   "hooks": [],
+   "ids": [
+    "about",
+    "design",
+    "designCta",
+    "designSummary",
+    "designTitle",
+    "estimate",
+    "estimateForm",
+    "estimateTitle",
+    "finishes",
+    "formStatus",
+    "gallery",
+    "heroTitle",
+    "kitchen3d",
+    "lbCap",
+    "lbClose",
+    "lbCta",
+    "lbImg",
+    "lbNext",
+    "lbPrev",
+    "lightbox",
+    "main",
+    "menuBtn",
+    "menuClose",
+    "messageBox",
+    "mobileMenu",
+    "moreBtn",
+    "nav",
+    "newsEmail",
+    "newsForm",
+    "newsStatus",
+    "portfolio",
+    "portfolioTitle",
+    "process",
+    "processTitle",
+    "serviceSel",
+    "services",
+    "servicesTitle",
+    "stickyCta",
+    "stream",
+    "top",
+    "yr"
+   ],
+   "scripts": [
+    "js/main.js"
+   ]
+  }
+ },
+ "wiring": {
+  "handlers": [],
+  "links": [
+   "#about",
+   "#design",
+   "#estimate",
+   "#main",
+   "#portfolio",
+   "#process",
+   "#services",
+   "#top",
+   "mailto:hello@prohomehero.com",
+   "tel:+15555550123"
+  ],
+  "fields": [
+   "email",
+   "message",
+   "name",
+   "phone",
+   "service"
+  ],
+  "hooks": [],
+  "ids": [
+   "about",
+   "design",
+   "designCta",
+   "designSummary",
+   "designTitle",
+   "estimate",
+   "estimateForm",
+   "estimateTitle",
+   "finishes",
+   "formStatus",
+   "gallery",
+   "heroTitle",
+   "kitchen3d",
+   "lbCap",
+   "lbClose",
+   "lbCta",
+   "lbImg",
+   "lbNext",
+   "lbPrev",
+   "lightbox",
+   "main",
+   "menuBtn",
+   "menuClose",
+   "messageBox",
+   "mobileMenu",
+   "moreBtn",
+   "nav",
+   "newsEmail",
+   "newsForm",
+   "newsStatus",
+   "portfolio",
+   "portfolioTitle",
+   "process",
+   "processTitle",
+   "serviceSel",
+   "services",
+   "servicesTitle",
+   "stickyCta",
+   "stream",
+   "top",
+   "yr"
+  ]
+ },
+ "scripts": {
+  "index.html": {
+   "queried": [
+    ".opt"
+   ],
+   "hooked": [],
+   "hides": true
+  }
+ },
+ "pages": {}
+}
