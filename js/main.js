@@ -46,6 +46,16 @@ moreBtn.addEventListener("click", () => {
 
 const lb = $("#lightbox"), lbImg = $("#lbImg"), lbCap = $("#lbCap");
 const shots = $$("#gallery .g-btn");
+const viewImg = $("#viewImg");
+const preview = (b) => {
+  if (!viewImg) return;
+  viewImg.src = b.dataset.src; viewImg.alt = b.dataset.cap;
+  $$("#gallery .g-item").forEach((li) => li.classList.toggle("is-active", li === b.parentElement));
+  viewImg.closest("button").dataset.i = b.dataset.i;
+};
+shots.forEach((b) => { b.addEventListener("mouseenter", () => preview(b)); b.addEventListener("focus", () => preview(b)); });
+if (shots[0]) preview(shots[0]);
+$("#viewBtn")?.addEventListener("click", (e) => { const i = Number(e.currentTarget.dataset.i || 0); show(i); lb.showModal(); });
 let cur = 0;
 const show = (i) => {
   cur = (i + shots.length) % shots.length;

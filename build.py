@@ -33,9 +33,9 @@ for pos, n in enumerate(ORDER):
     items.append(
         f'        <li class="g-item"{extra}>\n'
         f'          <button type="button" class="g-btn" data-i="{pos}" data-src="images/kitchen-{n:02d}.jpg" data-cap="{cap}" aria-label="View photo: {cap}">\n'
-        f'            <img src="images/kitchen-{n:02d}.jpg" alt="{cap}" loading="lazy" width="900" height="1600" />\n'
+        f'            <img class="g-thumb" src="images/kitchen-{n:02d}.jpg" alt="" loading="lazy" width="900" height="1600" />\n'
+        f'            <span class="g-title">{html.escape(SHORT[n])}</span>\n'
         f'          </button>\n'
-        f'          <p class="g-cap">{html.escape(SHORT[n])}</p>\n'
         f'        </li>'
     )
 

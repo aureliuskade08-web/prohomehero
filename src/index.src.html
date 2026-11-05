@@ -101,9 +101,14 @@
         <p class="lead col-span-12 lg:col-span-4 lg:col-start-8">Recent kitchen remodels</p>
       </div>
 
-      <ul id="gallery" class="gallery">
+      <div class="show grid grid-cols-12 gap-x-col">
+        <ol id="gallery" class="gallery col-span-12 lg:col-span-6">
 <!--GALLERY-->
-      </ul>
+        </ol>
+        <figure class="viewer hidden lg:block lg:col-span-5 lg:col-start-8">
+          <button type="button" class="viewer__btn" id="viewBtn" aria-label="Open this photo larger"><img id="viewImg" src="images/kitchen-09.jpg" alt="" width="900" height="1600" /></button>
+        </figure>
+      </div>
 
       <div class="gallery__more">
         <button id="moreBtn" class="btn btn--quiet" type="button" aria-expanded="false">See more projects</button>

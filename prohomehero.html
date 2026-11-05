@@ -21,7 +21,7 @@
 /* controls, all eight states */
 /* ---------- nav: slab ---------- */
 /* ---------- hero: poster with a paper plate ---------- */
-/* ---------- portfolio ---------- */
+/* ---------- portfolio: a catalogue index with one large plate ---------- */
 /* ---------- services: ruled rows ---------- */
 /* ---------- 3D designer ---------- */
 /* ---------- process ---------- */
@@ -170,19 +170,22 @@ h2 { max-width: 20ch; }
   .plate { width: 100%; padding: var(--space-xl) var(--gutter); }
 }
 
-/* ---------- portfolio ---------- */
-.gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl) var(--gap-columns); }
-@media (min-width: 48rem) { .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2xl) var(--gap-columns); } }
-@media (min-width: 80rem) { .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.g-btn { display: block; width: 100%; padding: 0; border: 0; background: var(--color-paper-3); cursor: zoom-in; }
-.g-btn img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-.g-cap { margin-top: var(--space-sm); max-width: 34ch; font-size: var(--text-sm); line-height: 1.4; color: var(--color-muted); transition: color var(--dur-short) var(--ease-out); }
-.g-item:hover .g-cap { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-camel); text-underline-offset: 0.2em; }
-.g-btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
-@media (min-width: 48rem) and (max-width: 79.99rem) { .g-item:nth-child(3n+2) { margin-top: var(--space-2xl); } }
-@media (min-width: 80rem) { .g-item:nth-child(4n+2), .g-item:nth-child(4n+4) { margin-top: var(--space-2xl); } }
-@media (max-width: 47.99rem) { .g-item:nth-child(2n) { margin-top: var(--space-xl); } }
-.gallery__more { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-xl); padding-top: var(--space-3xl); }
+/* ---------- portfolio: a catalogue index with one large plate ---------- */
+.gallery { list-style: none; margin: 0; padding: 0; counter-reset: proj; border-top: var(--rule-ink) solid var(--color-rule-ink); }
+.g-item { counter-increment: proj; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.g-btn { display: grid; grid-template-columns: var(--space-2xl) minmax(0, 1fr) auto; align-items: center; column-gap: var(--space-md); width: 100%; padding: var(--space-md) 0; border: 0; background: transparent; color: var(--color-ink); text-align: left; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.g-btn::before { content: counter(proj, decimal-leading-zero); font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; color: var(--color-camel); font-variant-numeric: tabular-nums; }
+.g-title { font-size: var(--text-lg); line-height: 1.3; font-weight: 500; }
+.g-thumb { order: 3; width: 56px; height: 70px; object-fit: cover; }
+.g-btn:hover { background: var(--color-paper-2); }
+.g-btn:hover .g-title { text-decoration: underline; text-decoration-thickness: var(--rule-ink); text-underline-offset: 0.25em; text-decoration-color: var(--color-camel); }
+.g-btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.viewer { position: sticky; top: calc(var(--nav-h) + var(--space-lg)); margin: 0; align-self: start; background: var(--color-paper-3); }
+.viewer__btn { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.viewer__btn img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
+.viewer__btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+@media (min-width: 64rem) { .g-item.is-active .g-btn { background: var(--color-paper-2); } .g-item.is-active .g-title { text-decoration: underline; text-decoration-thickness: var(--rule-ink); text-underline-offset: 0.25em; text-decoration-color: var(--color-camel); } .g-btn { white-space: nowrap; } .g-thumb { display: none; } .g-btn { grid-template-columns: var(--space-3xl) minmax(0, 1fr); padding: var(--space-lg) var(--space-sm) var(--space-lg) 0; } }
+.gallery__more { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xl); padding-top: var(--space-2xl); }
 
 /* ---------- services: ruled rows ---------- */
 .rows { list-style: none; margin: 0; padding: 0; border-top: var(--rule-ink) solid var(--color-rule-ink); }
@@ -356,110 +359,115 @@ h2 { max-width: 20ch; }
         <p class="lead col-span-12 lg:col-span-4 lg:col-start-8">Recent kitchen remodels</p>
       </div>
 
-      <ul id="gallery" class="gallery">
+      <div class="show grid grid-cols-12 gap-x-col">
+        <ol id="gallery" class="gallery col-span-12 lg:col-span-6">
         <li class="g-item">
           <button type="button" class="g-btn" data-i="0" data-img="09" data-cap="Quartz island with brass and leather stools and glass-front cabinets" aria-label="View photo: Quartz island with brass and leather stools and glass-front cabinets">
-            <img data-img="09" alt="Quartz island with brass and leather stools and glass-front cabinets" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="09" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Quartz island, brass and leather</span>
           </button>
-          <p class="g-cap">Quartz island, brass and leather</p>
         </li>
         <li class="g-item">
           <button type="button" class="g-btn" data-i="1" data-img="02" data-cap="Quartz slab backsplash, brass pull-down faucet and navy uppers with under-cabinet light" aria-label="View photo: Quartz slab backsplash, brass pull-down faucet and navy uppers with under-cabinet light">
-            <img data-img="02" alt="Quartz slab backsplash, brass pull-down faucet and navy uppers with under-cabinet light" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="02" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Quartz slab, brass faucet</span>
           </button>
-          <p class="g-cap">Quartz slab, brass faucet</p>
         </li>
         <li class="g-item">
           <button type="button" class="g-btn" data-i="2" data-img="10" data-cap="Two-tone kitchen: white uppers, navy base cabinets and brass pulls" aria-label="View photo: Two-tone kitchen: white uppers, navy base cabinets and brass pulls">
-            <img data-img="10" alt="Two-tone kitchen: white uppers, navy base cabinets and brass pulls" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="10" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Two-tone, white and navy</span>
           </button>
-          <p class="g-cap">Two-tone, white and navy</p>
         </li>
         <li class="g-item">
           <button type="button" class="g-btn" data-i="3" data-img="07" data-cap="Cream cabinets with glass-front uppers, brass pulls and slab backsplash" aria-label="View photo: Cream cabinets with glass-front uppers, brass pulls and slab backsplash">
-            <img data-img="07" alt="Cream cabinets with glass-front uppers, brass pulls and slab backsplash" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="07" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Cream cabinets, glass fronts</span>
           </button>
-          <p class="g-cap">Cream cabinets, glass fronts</p>
         </li>
         <li class="g-item">
           <button type="button" class="g-btn" data-i="4" data-img="04" data-cap="White shaker cabinets, granite counters, farmhouse sink and gas range" aria-label="View photo: White shaker cabinets, granite counters, farmhouse sink and gas range">
-            <img data-img="04" alt="White shaker cabinets, granite counters, farmhouse sink and gas range" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="04" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Granite, farmhouse sink</span>
           </button>
-          <p class="g-cap">Granite, farmhouse sink</p>
         </li>
         <li class="g-item">
           <button type="button" class="g-btn" data-i="5" data-img="08" data-cap="Brass pot filler over a gas cooktop with a quartz slab backsplash" aria-label="View photo: Brass pot filler over a gas cooktop with a quartz slab backsplash">
-            <img data-img="08" alt="Brass pot filler over a gas cooktop with a quartz slab backsplash" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="08" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Brass pot filler, slab backsplash</span>
           </button>
-          <p class="g-cap">Brass pot filler, slab backsplash</p>
         </li>
         <li class="g-item">
           <button type="button" class="g-btn" data-i="6" data-img="03" data-cap="Navy base cabinets with brass pulls and floating wood shelves" aria-label="View photo: Navy base cabinets with brass pulls and floating wood shelves">
-            <img data-img="03" alt="Navy base cabinets with brass pulls and floating wood shelves" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="03" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Navy cabinets, floating shelves</span>
           </button>
-          <p class="g-cap">Navy cabinets, floating shelves</p>
         </li>
         <li class="g-item">
           <button type="button" class="g-btn" data-i="7" data-img="14" data-cap="Quartz island with a pendant light, open to the living area" aria-label="View photo: Quartz island with a pendant light, open to the living area">
-            <img data-img="14" alt="Quartz island with a pendant light, open to the living area" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="14" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Island with pendant light</span>
           </button>
-          <p class="g-cap">Island with pendant light</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="8" data-img="01" data-cap="White shaker kitchen opening to a sunroom, walnut island, slate tile floor" aria-label="View photo: White shaker kitchen opening to a sunroom, walnut island, slate tile floor">
-            <img data-img="01" alt="White shaker kitchen opening to a sunroom, walnut island, slate tile floor" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="01" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">White shaker, walnut island</span>
           </button>
-          <p class="g-cap">White shaker, walnut island</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="9" data-img="11" data-cap="Workstation sink set into quartz with a black faucet and subway tile" aria-label="View photo: Workstation sink set into quartz with a black faucet and subway tile">
-            <img data-img="11" alt="Workstation sink set into quartz with a black faucet and subway tile" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="11" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Sink set into quartz</span>
           </button>
-          <p class="g-cap">Sink set into quartz</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="10" data-img="15" data-cap="Gray shaker cabinets with stacked glass-front uppers and a gas range" aria-label="View photo: Gray shaker cabinets with stacked glass-front uppers and a gas range">
-            <img data-img="15" alt="Gray shaker cabinets with stacked glass-front uppers and a gas range" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="15" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Gray shaker, glass uppers</span>
           </button>
-          <p class="g-cap">Gray shaker, glass uppers</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="11" data-img="05" data-cap="Farmhouse sink under the window with black hardware and subway tile" aria-label="View photo: Farmhouse sink under the window with black hardware and subway tile">
-            <img data-img="05" alt="Farmhouse sink under the window with black hardware and subway tile" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="05" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Farmhouse sink, black hardware</span>
           </button>
-          <p class="g-cap">Farmhouse sink, black hardware</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="12" data-img="06" data-cap="Farmhouse workstation sink with a black pull-down faucet and granite" aria-label="View photo: Farmhouse workstation sink with a black pull-down faucet and granite">
-            <img data-img="06" alt="Farmhouse workstation sink with a black pull-down faucet and granite" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="06" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Workstation sink, granite</span>
           </button>
-          <p class="g-cap">Workstation sink, granite</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="13" data-img="12" data-cap="Full-height white pantry cabinets beside a black refrigerator" aria-label="View photo: Full-height white pantry cabinets beside a black refrigerator">
-            <img data-img="12" alt="Full-height white pantry cabinets beside a black refrigerator" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="12" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Full-height pantry cabinets</span>
           </button>
-          <p class="g-cap">Full-height pantry cabinets</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="14" data-img="13" data-cap="Two-tone cabinets with black appliances and plank flooring" aria-label="View photo: Two-tone cabinets with black appliances and plank flooring">
-            <img data-img="13" alt="Two-tone cabinets with black appliances and plank flooring" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="13" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Two-tone, plank flooring</span>
           </button>
-          <p class="g-cap">Two-tone, plank flooring</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="15" data-img="16" data-cap="Stainless farmhouse sink with a matte black pull-down faucet" aria-label="View photo: Stainless farmhouse sink with a matte black pull-down faucet">
-            <img data-img="16" alt="Stainless farmhouse sink with a matte black pull-down faucet" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="16" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Stainless farmhouse sink</span>
           </button>
-          <p class="g-cap">Stainless farmhouse sink</p>
         </li>
         <li class="g-item" data-extra hidden>
           <button type="button" class="g-btn" data-i="16" data-img="17" data-cap="Quartz island with a pendant light and stainless refrigerator" aria-label="View photo: Quartz island with a pendant light and stainless refrigerator">
-            <img data-img="17" alt="Quartz island with a pendant light and stainless refrigerator" loading="lazy" width="900" height="1600" />
+            <img class="g-thumb" data-img="17" alt="" loading="lazy" width="900" height="1600" />
+            <span class="g-title">Island, stainless refrigerator</span>
           </button>
-          <p class="g-cap">Island, stainless refrigerator</p>
         </li>
-      </ul>
+        </ol>
+        <figure class="viewer hidden lg:block lg:col-span-5 lg:col-start-8">
+          <button type="button" class="viewer__btn" id="viewBtn" aria-label="Open this photo larger"><img id="viewImg" data-img="09" alt="" width="900" height="1600" /></button>
+        </figure>
+      </div>
 
       <div class="gallery__more">
         <button id="moreBtn" class="btn btn--quiet" type="button" aria-expanded="false">See more projects</button>
@@ -904,6 +912,16 @@ moreBtn.addEventListener("click", () => {
 
 const lb = $("#lightbox"), lbImg = $("#lbImg"), lbCap = $("#lbCap");
 const shots = $$("#gallery .g-btn");
+const viewImg = $("#viewImg");
+const preview = (b) => {
+  if (!viewImg) return;
+  viewImg.src = b.dataset.src; viewImg.alt = b.dataset.cap;
+  $$("#gallery .g-item").forEach((li) => li.classList.toggle("is-active", li === b.parentElement));
+  viewImg.closest("button").dataset.i = b.dataset.i;
+};
+shots.forEach((b) => { b.addEventListener("mouseenter", () => preview(b)); b.addEventListener("focus", () => preview(b)); });
+if (shots[0]) preview(shots[0]);
+$("#viewBtn")?.addEventListener("click", (e) => { const i = Number(e.currentTarget.dataset.i || 0); show(i); lb.showModal(); });
 let cur = 0;
 const show = (i) => {
   cur = (i + shots.length) % shots.length;

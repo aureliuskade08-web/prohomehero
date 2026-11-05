@@ -81,19 +81,22 @@ h2 { max-width: 20ch; }
   .plate { width: 100%; padding: var(--space-xl) var(--gutter); }
 }
 
-/* ---------- portfolio ---------- */
-.gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl) var(--gap-columns); }
-@media (min-width: 48rem) { .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2xl) var(--gap-columns); } }
-@media (min-width: 80rem) { .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.g-btn { display: block; width: 100%; padding: 0; border: 0; background: var(--color-paper-3); cursor: zoom-in; }
-.g-btn img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-.g-cap { margin-top: var(--space-sm); max-width: 34ch; font-size: var(--text-sm); line-height: 1.4; color: var(--color-muted); transition: color var(--dur-short) var(--ease-out); }
-.g-item:hover .g-cap { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-camel); text-underline-offset: 0.2em; }
-.g-btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
-@media (min-width: 48rem) and (max-width: 79.99rem) { .g-item:nth-child(3n+2) { margin-top: var(--space-2xl); } }
-@media (min-width: 80rem) { .g-item:nth-child(4n+2), .g-item:nth-child(4n+4) { margin-top: var(--space-2xl); } }
-@media (max-width: 47.99rem) { .g-item:nth-child(2n) { margin-top: var(--space-xl); } }
-.gallery__more { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-xl); padding-top: var(--space-3xl); }
+/* ---------- portfolio: a catalogue index with one large plate ---------- */
+.gallery { list-style: none; margin: 0; padding: 0; counter-reset: proj; border-top: var(--rule-ink) solid var(--color-rule-ink); }
+.g-item { counter-increment: proj; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.g-btn { display: grid; grid-template-columns: var(--space-2xl) minmax(0, 1fr) auto; align-items: center; column-gap: var(--space-md); width: 100%; padding: var(--space-md) 0; border: 0; background: transparent; color: var(--color-ink); text-align: left; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.g-btn::before { content: counter(proj, decimal-leading-zero); font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; color: var(--color-camel); font-variant-numeric: tabular-nums; }
+.g-title { font-size: var(--text-lg); line-height: 1.3; font-weight: 500; }
+.g-thumb { order: 3; width: 56px; height: 70px; object-fit: cover; }
+.g-btn:hover { background: var(--color-paper-2); }
+.g-btn:hover .g-title { text-decoration: underline; text-decoration-thickness: var(--rule-ink); text-underline-offset: 0.25em; text-decoration-color: var(--color-camel); }
+.g-btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.viewer { position: sticky; top: calc(var(--nav-h) + var(--space-lg)); margin: 0; align-self: start; background: var(--color-paper-3); }
+.viewer__btn { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.viewer__btn img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
+.viewer__btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+@media (min-width: 64rem) { .g-item.is-active .g-btn { background: var(--color-paper-2); } .g-item.is-active .g-title { text-decoration: underline; text-decoration-thickness: var(--rule-ink); text-underline-offset: 0.25em; text-decoration-color: var(--color-camel); } .g-btn { white-space: nowrap; } .g-thumb { display: none; } .g-btn { grid-template-columns: var(--space-3xl) minmax(0, 1fr); padding: var(--space-lg) var(--space-sm) var(--space-lg) 0; } }
+.gallery__more { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xl); padding-top: var(--space-2xl); }
 
 /* ---------- services: ruled rows ---------- */
 .rows { list-style: none; margin: 0; padding: 0; border-top: var(--rule-ink) solid var(--color-rule-ink); }
