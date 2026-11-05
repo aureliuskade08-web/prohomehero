@@ -112,7 +112,7 @@ body { font-size: var(--text-md); }
 .band-accent .lead { color: var(--color-paper-3); }
 .band-paper2 { background: var(--color-paper-2); }
 .head { padding-bottom: var(--space-2xl); align-items: end; }
-.head .lead { padding-bottom: var(--space-xs); }
+.head .lead { padding-bottom: var(--space-xs); max-width: 36ch; }
 h2 { max-width: 20ch; }
 .statement { max-width: 16ch; font-size: var(--text-display); line-height: 1.04; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); }
@@ -218,16 +218,16 @@ h2 { max-width: 20ch; }
 
 /* ---------- process ---------- */
 .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; border-top: var(--rule-ink) solid var(--color-rule-ink); }
-.steps li { counter-increment: step; display: grid; grid-template-columns: var(--space-3xl) minmax(0, 1fr); column-gap: var(--space-md); row-gap: var(--space-xs); padding: var(--space-xl) 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.steps li { counter-increment: step; display: grid; grid-template-columns: var(--space-2xl) minmax(0, 1fr); column-gap: var(--space-md); row-gap: var(--space-xs); padding: var(--space-xl) 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
 .steps li::before { content: counter(step); grid-row: 1 / span 2; font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1; color: var(--color-camel); font-variant-numeric: tabular-nums; }
 .steps h3 { font-family: var(--font-body); font-weight: 500; font-size: var(--text-xl); line-height: 1.25; letter-spacing: 0; }
 .steps p { color: var(--color-muted); max-width: 48ch; }
 
 /* ---------- estimate ---------- */
-.form { display: grid; gap: var(--space-lg); margin-top: var(--space-xl); }
+.form { display: grid; gap: var(--space-md); margin-top: var(--space-xl); }
 .field { display: grid; gap: var(--space-2xs); min-width: 0; }
 .field > span { font-size: var(--text-sm); font-weight: 500; color: var(--color-paper-3); }
-.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: var(--space-sm) 0; border: 0; border-bottom: 1px solid var(--color-paper-3); border-radius: 0; background: transparent; color: var(--color-paper); outline: 2px solid transparent; outline-offset: 4px; }
+.field input, .field select, .field textarea { width: 100%; min-height: 44px; padding: var(--space-xs) 0; border: 0; border-bottom: 1px solid var(--color-paper-3); border-radius: 0; background: transparent; color: var(--color-paper); outline: 2px solid transparent; outline-offset: 4px; }
 .field select option { color: var(--color-ink); background: var(--color-paper); }
 .field textarea { resize: vertical; min-height: 96px; }
 .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline-color: var(--color-paper); }
@@ -240,7 +240,7 @@ h2 { max-width: 20ch; }
 .footer { background: var(--color-ink); color: var(--color-paper); padding-top: var(--section-gap-s); }
 .footer__sign { font-family: var(--font-display); font-size: var(--text-display-s); line-height: 1; letter-spacing: var(--tracking-display); max-width: none; }
 .footer__line { margin-top: var(--space-md); max-width: 34ch; color: var(--color-taupe); }
-.footer__links { display: grid; align-content: start; gap: var(--space-sm); }
+.footer__links { display: grid; align-content: start; grid-auto-rows: min-content; gap: var(--space-sm); }
 .footer__links a { width: fit-content; text-decoration: none; padding-block: var(--space-2xs); border-bottom: 1px solid transparent; transition: border-color var(--dur-short) var(--ease-out); }
 .footer__links a:hover { border-bottom-color: var(--color-camel); }
 .footer__legal { margin-top: var(--space-3xl); padding-block: var(--space-lg); border-top: var(--rule-hair) solid var(--color-camel); font-size: var(--text-sm); color: var(--color-taupe); }
@@ -572,10 +572,10 @@ h2 { max-width: 20ch; }
         <p class="footer__sign">Pro Home Hero</p>
         <p class="footer__line">Kitchen remodeling, designed and built by one team.</p>
       </div>
-      <nav class="footer__links col-span-6 lg:col-span-3 lg:col-start-8" aria-label="Footer">
+      <nav class="footer__links col-span-12 lg:col-span-3 lg:col-start-7" aria-label="Footer">
         <a href="#portfolio">Portfolio</a><a href="#services">Services</a><a href="#design">Design your kitchen</a><a href="#process">Process</a>
       </nav>
-      <div class="footer__links col-span-6 lg:col-span-3">
+      <div class="footer__links col-span-12 lg:col-span-3 lg:col-start-10">
         <a data-tel href="tel:+15555550123"><span data-phone-text>(555) 555-0123</span></a>
         <a data-mail href="mailto:hello@prohomehero.com"><span data-email-text>hello@prohomehero.com</span></a>
         <a href="#estimate">Free estimate</a>
