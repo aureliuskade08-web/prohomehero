@@ -18,11 +18,11 @@ def inline_css(path):
 def font(n): return "data:font/woff2;base64," + base64.b64encode((r/f"fonts/{n}.woff2").read_bytes()).decode()
 tokens = (r/"css/tokens.css").read_text()
 for n in ("caslon-400","hanken-400","hanken-500"): tokens = tokens.replace(f"../fonts/{n}.woff2", font(n))
-hero = "data:image/jpeg;base64," + base64.b64encode((r/"images/hero-olive.jpg").read_bytes()).decode()
+hero = "data:image/jpeg;base64," + base64.b64encode((r/"images/hero-kitchen.jpg").read_bytes()).decode()
 styles = (r/"css/styles.css").read_text()
 stamp = "\n".join(l for l in styles.splitlines() if l.startswith("/*") or l.startswith(" *"))
 css = stamp + "\n" + tokens + "\n" + (r/"css/base.css").read_text() + "\n" + inline_css("css/styles.css") + "\n" + (r/"css/tailwind.css").read_text()
-html = html.replace('src="images/hero-olive.jpg"', f'src="{hero}"')
+html = html.replace('src="images/hero-kitchen.jpg"', f'src="{hero}"')
 html = html.replace('<link rel="stylesheet" href="css/styles.css" />', f"<style>{css}</style>").replace('<link rel="stylesheet" href="css/tailwind.css" />', "")
 
 des = (r/"js/designer.js").read_text().replace("export const", "const").replace("export function", "function")
