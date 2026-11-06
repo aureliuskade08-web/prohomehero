@@ -4,7 +4,7 @@ Static site (HTML, CSS, plain JavaScript). No CMS, no database. Open `index.html
 (`python3 -m http.server`) or upload the folder to any static host. Double-clicking the file will not load the scripts.
 
 ## Where things are
-- `index.html` : the page. All headings, text, image alt text and links are in the HTML. `src/index.src.html` is the editable source of the same page (see README for the one build step that fills the portfolio list).
+- `index.html` : the home page. `services/<name>/index.html` : six service pages, generated from `pages.py` by `python3 build_pages.py`. All headings, text, image alt text and links are in the HTML. `src/index.src.html` is the editable source of the same page (see README for the one build step that fills the portfolio list).
 - `css/` : styles. Colors and fonts are variables in `css/tokens.css`.
 - `js/main.js` : site settings at the top (phone, email, form endpoint, analytics id, license number).
 - `images/` : photos. `images/hero-kitchen.jpg` is the hero and social-sharing image.
@@ -25,6 +25,6 @@ Static site (HTML, CSS, plain JavaScript). No CMS, no database. Open `index.html
 - Confirm the business name: the Google listing says "Home Heroes", the site says "Home Hero". Make them match.
 
 ## Likely next steps for SEO
-- Separate pages per service and service area (the site is currently one page); add each to sitemap.xml.
+- Pages for each service area once the cities served are confirmed (the six service pages already exist; see README, Adding pages).
 - Local landing content, project pages, reviews.
 - Add the real domain DNS, then verify in Google Search Console.

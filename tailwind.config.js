@@ -1,10 +1,10 @@
 /**
- * Pro Home Hero: Tailwind is used for layout only. Spacing and colour resolve to the
+ * Home Hero: Tailwind is used for layout only. Spacing and colour resolve to the
  * design tokens in css/tokens.css, and Preflight is off because css/base.css is the reset.
  */
 const sp = (n) => `var(--space-${n})`;
 module.exports = {
-  content: ["./index.html", "./src/**/*.html", "./js/**/*.js"],
+  content: ["./index.html", "./src/**/*.html", "./js/**/*.js", "./*.py", "./services/**/*.html"],
   corePlugins: {
     preflight: false,
     // layout utilities only; nothing that writes --tw-* defaults

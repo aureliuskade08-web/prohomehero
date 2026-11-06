@@ -49,6 +49,7 @@ Change `src/index.src.html`, then:
 
 ```
 python3 build.py                                  # injects the portfolio list into index.html
+python3 build_pages.py                            # rebuilds the service pages and sitemap.xml
 npx tailwindcss -c tailwind.config.js -i src/input.css -o css/tailwind.css --minify
 python3 build_single.py && python3 build_embed.py  # optional single-file builds
 ```
@@ -65,3 +66,17 @@ This replaced the earlier real-time three.js scene: it looks much closer to a ph
 ## Photos
 
 `images/kitchen-*.jpg` are the client's own project photos. Nine of the newer ones (`kitchen-18` to `kitchen-26`, and the hero) came from the Pure Home Instagram folder.
+
+## Adding pages
+
+Service pages live in `services/<slug>/index.html` and are generated, so the header, footer, form and mobile bar stay identical everywhere
+(they are copied from `src/index.src.html`). Page text is in `pages.py`, one entry per page.
+
+To add a page: copy an entry in `pages.py` (name, title, description, headline, lead, photo number, the three text blocks, questions, related pages),
+give it a new slug, add the slug to `ORDER`, then run `python3 build_pages.py`. That writes the page, adds it to `sitemap.xml`, adds its structured data
+(Service and BreadcrumbList), links it from the footer of every service page, and preselects its topic in the estimate form.
+To link it from the home page add a row in the Services section of `src/index.src.html`, then run `python3 build.py`.
+
+Write only what is true for the business: no prices, timelines, warranties, reviews or places it does not serve. City pages should be added
+once the service areas are confirmed, with real local content, not the same text with the city name swapped.
+`prohomehero.html` (the single-file review copy) does not include the service pages.

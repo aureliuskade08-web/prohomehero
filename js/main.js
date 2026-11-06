@@ -51,7 +51,9 @@ $$("[data-license-text]").forEach((n) => { if (SITE.licenseNo) { n.textContent =
 $$("[data-tel]").forEach((a) => a.addEventListener("click", () => track("click_to_call", { placement: a.closest("footer") ? "footer" : a.closest("#stickyCta") ? "mobile_bar" : a.closest("header") ? "nav" : "page" })));
 $$("[data-mail]").forEach((a) => (a.href = `mailto:${SITE.email}`));
 $$("[data-email-text]").forEach((n) => (n.textContent = SITE.email));
-$("#yr").textContent = new Date().getFullYear();
+if ($("#yr")) $("#yr").textContent = new Date().getFullYear();
+/* service pages name the form topic they should open with */
+if (document.body.dataset.service && $("#serviceSel")) $("#serviceSel").value = document.body.dataset.service;
 
 /* mobile menu */
 const menu = $("#mobileMenu"), burger = $("#menuBtn");
@@ -67,6 +69,7 @@ $$("a", menu).forEach((a) => a.addEventListener("click", () => toggleMenu(false)
 addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) toggleMenu(false); });
 
 /* ---------------- portfolio: reveal + lightbox ---------------- */
+if ($("#moreBtn") && $("#lightbox")) {
 const moreBtn = $("#moreBtn");
 const extras = $$("#gallery [data-extra]");
 moreBtn.addEventListener("click", () => {
@@ -105,6 +108,7 @@ lb.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") show(cur - 1);
   if (e.key === "ArrowRight") show(cur + 1);
 });
+}
 
 /* ---------------- services → prefill the form ---------------- */
 $$("[data-service]").forEach((a) =>
@@ -140,9 +144,9 @@ async function bootKitchen() {
     $("#kitchen3d").insertAdjacentHTML("beforeend", `<p class="kitchen3d__note">The preview could not load. You can still tell us what you have in mind below.</p>`);
   }
 }
-new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); bootKitchen(); } }, { rootMargin: "400px" }).observe(host);
+if (host) new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); bootKitchen(); } }, { rootMargin: "400px" }).observe(host);
 
-$("#designCta").addEventListener("click", () => {
+$("#designCta")?.addEventListener("click", () => {
   const box = $("#messageBox");
   if (designNote && !box.value.includes("Kitchen designer picks")) {
     box.value = (box.value ? box.value + "\n\n" : "") + "Kitchen designer picks: " + designNote;
@@ -175,7 +179,7 @@ async function send(payload, statusEl, okMsg, subject) {
     return false;
   }
 }
-$("#estimateForm").addEventListener("submit", async (e) => {
+$("#estimateForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const f = e.target, st = $("#formStatus");
   const d = Object.fromEntries(new FormData(f));
