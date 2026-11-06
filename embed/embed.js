@@ -1,5 +1,5 @@
 import { mountDesigner } from "./designer.js";
-/* Query options: ?cta=https://example.com/contact  ?label=Get a quote  ?accent=%23667658  ?bg=%23F3E3DB */
+/* Query options: ?cta=https://example.com/contact  ?label=Get a quote  ?accent=%23293E35  ?bg=%23E7DFD0 */
 const q = new URLSearchParams(location.search);
 const $ = (s) => document.querySelector(s);
 const okColor = (c) => /^#[0-9a-f]{6}$/i.test(c || "");

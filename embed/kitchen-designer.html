@@ -22,14 +22,14 @@
   --nav-h: 76px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
 
-  /* The client's palette, lifted: linen, blush, oat and sage with a soft mocha for type. Lighter and warmer than the first pass. */
-  --color-paper: #FCF8F3; --color-paper-2: #F5ECE1; --color-paper-3: #EADBCB;       /* cream, oat, linen */
-  --color-blush: #F3E3DB; --color-blush-2: #E9CFC4;                                  /* soft blush, dusty rose */
-  --color-ink: #44332C; --color-ink-2: #6F4E40; --color-muted: #78675D;              /* soft mocha, walnut, warm grey-brown */
-  --color-rule: #E6D9C9; --color-rule-ink: #44332C;
-  --color-accent: #667658; --color-accent-2: #566548; --color-accent-ink: #FCF8F3; --color-focus: #9A7449;   /* sage, deeper sage, cream, camel */
-  --color-camel: #A98458; --color-taupe: #B8AB9C; --color-rust: #94574A; --color-bark: #F0E3D6;
-  --color-error: #8A2F20; --color-success: #566548;
+  /* Winter Woodland: Evergreen #293E35, Juniper #6B7C70, Weathered Bark #75665C, Mushroom #C9BDA9, Winter Cream #F0EADF. Cream carries the pages, evergreen the type and actions. */
+  --color-paper: #F7F3EB; --color-paper-2: #F0EADF; --color-paper-3: #E4DBCB;       /* cream tints: page, Winter Cream, deeper cream */
+  --color-blush: #E7DFD0; --color-blush-2: #C9BDA9;                                  /* soft mushroom band, Mushroom */
+  --color-ink: #293E35; --color-ink-2: #3E5247; --color-muted: #675A51;              /* Evergreen, lifted evergreen, deepened Weathered Bark for small text */
+  --color-rule: #D8CDBA; --color-rule-ink: #293E35;
+  --color-accent: #293E35; --color-accent-2: #1F3029; --color-accent-ink: #F7F3EB; --color-focus: #6B7C70;   /* Evergreen, deeper evergreen, cream, Juniper */
+  --color-camel: #6B7C70; --color-taupe: #C9BDA9; --color-rust: #75665C; --color-bark: #E9E1D2;           /* Juniper, Mushroom, Weathered Bark, hover cream */
+  --color-error: #8A2F20; --color-success: #3E5247;
 
   --font-display: "Libre Caslon Display", "Libre Caslon Text", ui-serif, Georgia, serif; --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
   --radius-card: 0; --radius-pill: 999px; --radius-arch: 999px 999px 0 0; --rule-hair: 1px; --rule-ink: 2px;
@@ -65,8 +65,8 @@ button, input, select, textarea { font: inherit; }
 /* photographs: natural sat=-12 con=-4 */
 [data-slot] > img { filter: saturate(0.88) contrast(0.96); }
 
-/* Hallmark · shape: Marquee Hero, hero taken as a Poster with the head on a paper plate · genre: editorial · theme: Loom, adapted by request (lighter, softer, feminine; cream, blush, oat, sage; arch frames, pill controls) · redesign: full · draw: 5d8c53 · job: hire
- * hero: Poster (the client's own bright olive-island photograph) · nav: light slab · footer: letter close · imagery: photographs, the client's own, plus a rendered kitchen for the finishes designer · signature: the arch-framed portfolio plate and the live-recoloured rendered kitchen · loom: the client's palette lifted toward cream, blush and sage
+/* Hallmark · shape: Marquee Hero, hero taken as a Poster with the head on a paper plate · genre: editorial · theme: Loom, adapted by request (lighter, softer, feminine; the client's Winter Woodland palette: evergreen, juniper, weathered bark, mushroom, winter cream; arch frames, pill controls) · redesign: full · draw: 5d8c53 · job: hire
+ * hero: Poster (a bright white kitchen photograph) · nav: light slab · footer: letter close · imagery: photographs, the client's own, plus a rendered kitchen for the finishes designer · signature: the arch-framed portfolio plate and the live-recoloured rendered kitchen · loom: the Winter Woodland palette, cream grounds with evergreen type and actions
  * axes: light/roman-serif/chromatic-green · posture: committed · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, a poster hero with a plate is a known luxury move; the olive island and brass pulls are this client's own detail */
 /* Hallmark · waive 29 · the mobile CTA bar is a blurred translucent surface · the client asked for the phone toolbar to read as glass over the page */
@@ -266,6 +266,18 @@ h2 { max-width: 20ch; }
 .credit { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-muted); max-width: 40ch; }
 .footer__license { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-muted); }
 
+/* ---------- filled gaps: arched photographs beside the text ---------- */
+.arch { margin: 0; align-self: start; aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius-arch); background: var(--color-paper-3); }
+.arch > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about__p + .about__p { margin-top: var(--space-xl); }
+.about__p { max-width: 44ch; }
+@media (min-width: 64rem) {
+  .arch--sticky, .process__lead, .design__stage { position: sticky; top: calc(var(--nav-h) + var(--space-lg)); align-self: start; }
+  .process__photo { margin-top: var(--space-2xl); max-width: 320px; }
+}
+@media (max-width: 63.99rem) { .process__photo { display: none; } .arch { aspect-ratio: 4 / 3; } }
+.statement + .about__p { margin-top: var(--space-xl); }
+
 
 body.embed { background: var(--color-blush); min-height: 0; }
 .embed__wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); padding: var(--space-md); max-width: 1200px; margin: 0 auto; }
@@ -301,18 +313,18 @@ window.__HH_ASSETS = {"mask_A.png": "data:image/png;base64,iVBORw0KGgoAAAANSUhEU
 const FINISHES = {
   cabinets: {
     white: { label: "Warm white", hex: "#EFE9DF" },
-    blush: { label: "Blush", hex: "#E3C9BE" },
-    sage: { label: "Sage", hex: "#93A184" },
+    mushroom: { label: "Mushroom", hex: "#B3A48D" },
+    juniper: { label: "Juniper", hex: "#6B7C70" },
     blue: { label: "Dusty blue", hex: "#8EA3B6" },
     greige: { label: "Greige", hex: "#C6BAAA" },
-    navy: { label: "Navy", hex: "#33445C" },
+    evergreen: { label: "Evergreen", hex: "#223A2F" },
   },
   island: {
     match: { label: "Match cabinets" },
-    sage: { label: "Sage", hex: "#93A184" },
+    juniper: { label: "Juniper", hex: "#6B7C70" },
     blue: { label: "Dusty blue", hex: "#8EA3B6" },
-    navy: { label: "Navy", hex: "#33445C" },
-    blush: { label: "Blush", hex: "#E3C9BE" },
+    evergreen: { label: "Evergreen", hex: "#223A2F" },
+    mushroom: { label: "Mushroom", hex: "#B3A48D" },
   },
   hardware: {
     brass: { label: "Brushed brass", hex: "#C79A55" },
@@ -423,7 +435,7 @@ function mountDesigner({ canvas, viewsHost, assetUrl, onChange }) {
 }
 
 
-/* Query options: ?cta=https://example.com/contact  ?label=Get a quote  ?accent=%23667658  ?bg=%23F3E3DB */
+/* Query options: ?cta=https://example.com/contact  ?label=Get a quote  ?accent=%23293E35  ?bg=%23E7DFD0 */
 const q = new URLSearchParams(location.search);
 const $ = (s) => document.querySelector(s);
 const okColor = (c) => /^#[0-9a-f]{6}$/i.test(c || "");

@@ -7,18 +7,18 @@
 export const FINISHES = {
   cabinets: {
     white: { label: "Warm white", hex: "#EFE9DF" },
-    blush: { label: "Blush", hex: "#E3C9BE" },
-    sage: { label: "Sage", hex: "#93A184" },
+    mushroom: { label: "Mushroom", hex: "#B3A48D" },
+    juniper: { label: "Juniper", hex: "#6B7C70" },
     blue: { label: "Dusty blue", hex: "#8EA3B6" },
     greige: { label: "Greige", hex: "#C6BAAA" },
-    navy: { label: "Navy", hex: "#33445C" },
+    evergreen: { label: "Evergreen", hex: "#223A2F" },
   },
   island: {
     match: { label: "Match cabinets" },
-    sage: { label: "Sage", hex: "#93A184" },
+    juniper: { label: "Juniper", hex: "#6B7C70" },
     blue: { label: "Dusty blue", hex: "#8EA3B6" },
-    navy: { label: "Navy", hex: "#33445C" },
-    blush: { label: "Blush", hex: "#E3C9BE" },
+    evergreen: { label: "Evergreen", hex: "#223A2F" },
+    mushroom: { label: "Mushroom", hex: "#B3A48D" },
   },
   hardware: {
     brass: { label: "Brushed brass", hex: "#C79A55" },

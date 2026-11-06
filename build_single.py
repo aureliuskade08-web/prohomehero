@@ -10,6 +10,9 @@ html = re.sub(r'<link rel="preload"[^>]*>\n?', '', html)
 html = re.sub(r'(?<![-\w])src="images/kitchen-(\d+)\.jpg"', r'data-img="\1"', html)
 html = re.sub(r'\bdata-src="images/kitchen-(\d+)\.jpg"', r'data-img="\1"', html)
 
+_chk = "document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });"
+assert _chk in html
+html = html.replace(_chk, "")  # photos get their data URI from the script below; this empty-slot check would remove them first
 import re as _re
 def inline_css(path):
     c = (r/path).read_text()

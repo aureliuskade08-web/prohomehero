@@ -1,5 +1,5 @@
-/* Hallmark · shape: Marquee Hero, hero taken as a Poster with the head on a paper plate · genre: editorial · theme: Loom, adapted by request (lighter, softer, feminine; cream, blush, oat, sage; arch frames, pill controls) · redesign: full · draw: 5d8c53 · job: hire
- * hero: Poster (the client's own bright olive-island photograph) · nav: light slab · footer: letter close · imagery: photographs, the client's own, plus a rendered kitchen for the finishes designer · signature: the arch-framed portfolio plate and the live-recoloured rendered kitchen · loom: the client's palette lifted toward cream, blush and sage
+/* Hallmark · shape: Marquee Hero, hero taken as a Poster with the head on a paper plate · genre: editorial · theme: Loom, adapted by request (lighter, softer, feminine; the client's Winter Woodland palette: evergreen, juniper, weathered bark, mushroom, winter cream; arch frames, pill controls) · redesign: full · draw: 5d8c53 · job: hire
+ * hero: Poster (a bright white kitchen photograph) · nav: light slab · footer: letter close · imagery: photographs, the client's own, plus a rendered kitchen for the finishes designer · signature: the arch-framed portfolio plate and the live-recoloured rendered kitchen · loom: the Winter Woodland palette, cream grounds with evergreen type and actions
  * axes: light/roman-serif/chromatic-green · posture: committed · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, a poster hero with a plate is a known luxury move; the olive island and brass pulls are this client's own detail */
 /* Hallmark · waive 29 · the mobile CTA bar is a blurred translucent surface · the client asked for the phone toolbar to read as glass over the page */
@@ -200,3 +200,15 @@ h2 { max-width: 20ch; }
 .fin p { color: var(--color-muted); max-width: 44ch; margin-top: var(--space-2xs); }
 .credit { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-muted); max-width: 40ch; }
 .footer__license { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-muted); }
+
+/* ---------- filled gaps: arched photographs beside the text ---------- */
+.arch { margin: 0; align-self: start; aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius-arch); background: var(--color-paper-3); }
+.arch > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about__p + .about__p { margin-top: var(--space-xl); }
+.about__p { max-width: 44ch; }
+@media (min-width: 64rem) {
+  .arch--sticky, .process__lead, .design__stage { position: sticky; top: calc(var(--nav-h) + var(--space-lg)); align-self: start; }
+  .process__photo { margin-top: var(--space-2xl); max-width: 320px; }
+}
+@media (max-width: 63.99rem) { .process__photo { display: none; } .arch { aspect-ratio: 4 / 3; } }
+.statement + .about__p { margin-top: var(--space-xl); }

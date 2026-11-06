@@ -36,7 +36,7 @@ The site is set up so those tools keep working:
 `embed/kitchen-designer.html` is the finishes designer on its own, in one file (about 2 MB). Upload it to the Pure Home host and place it on a page such as the bathroom or kitchen remodeling page:
 
 ```html
-<iframe src="/kitchen-designer.html?cta=https://purehomeus.com/contact-pure-home&label=Get%20a%20quote&accent=%23667658"
+<iframe src="/kitchen-designer.html?cta=https://purehomeus.com/contact-pure-home&label=Get%20a%20quote&accent=%23293E35"
         title="Kitchen finishes designer" width="100%" height="760" loading="lazy" style="border:0"></iframe>
 ```
 
