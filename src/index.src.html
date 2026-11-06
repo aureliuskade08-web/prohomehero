@@ -18,7 +18,8 @@
   <link rel="preload" href="fonts/caslon-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/tailwind.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F7F3EB'/%3E%3Cpath d='M8 23V10h5.2c3 0 4.6 1.5 4.6 3.9s-1.7 4-4.7 4H11V23z M11 15.9h2c1.3 0 2-.6 2-1.9s-.7-1.8-2-1.8h-2z' fill='%23293E35'/%3E%3Crect x='20' y='10' width='3' height='13' fill='%236B7C70'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,6 +29,7 @@
     "url": "https://www.prohomehero.com/",
     "telephone": "+14705735890",
     "image": "https://www.prohomehero.com/images/hero-kitchen.jpg",
+    "logo": "https://www.prohomehero.com/images/logo.png",
     "description": "Licensed and insured kitchen remodeling: cabinets, countertops, backsplash, lighting and flooring from one team, with financing available.",
     "knowsAbout": ["Kitchen remodeling", "Kitchen cabinets", "Countertops", "Backsplash", "Kitchen islands", "Kitchen lighting", "Kitchen flooring"],
     "makesOffer": [
@@ -47,7 +49,7 @@
   <!-- NAV: slab -->
   <header id="nav" class="nav">
     <div class="container flex items-center justify-between">
-      <a href="#top" class="nav__logo" aria-label="Home Hero, home">Home Hero</a>
+      <a href="#top" class="nav__logo" aria-label="Home Hero, home"><img class="logo-mark" src="images/mark.png" alt="" width="40" height="40" /><span>Home Hero</span></a>
       <nav class="nav__links hidden items-center gap-xl lg:flex" aria-label="Primary">
         <a href="#portfolio">Portfolio</a>
         <a href="#services">Services</a>
@@ -68,7 +70,7 @@
   <!-- MOBILE MENU -->
   <div id="mobileMenu" class="menu" hidden role="dialog" aria-modal="true" aria-label="Menu">
     <div class="container flex items-center justify-between menu__bar">
-      <span class="nav__logo">Home Hero</span>
+      <span class="nav__logo"><img class="logo-mark" src="images/mark.png" alt="" width="40" height="40" /><span>Home Hero</span></span>
       <button id="menuClose" class="nav__burger" aria-label="Close menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
       </button>
@@ -280,7 +282,7 @@
   <footer class="footer">
     <div class="container grid grid-cols-12 gap-x-col gap-y-xl">
       <div class="col-span-12 lg:col-span-6">
-        <p class="footer__sign">Home Hero</p>
+        <img class="footer__logo" src="images/logo.png" alt="Home Hero" width="190" height="193" loading="lazy" />
         <p class="footer__line">Kitchen remodeling by one team.</p>
       </div>
       <nav class="footer__links col-span-12 lg:col-span-3 lg:col-start-7" aria-label="Footer">

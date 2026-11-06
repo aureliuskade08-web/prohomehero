@@ -80,3 +80,9 @@ To link it from the home page add a row in the Services section of `src/index.sr
 Write only what is true for the business: no prices, timelines, warranties, reviews or places it does not serve. City pages should be added
 once the service areas are confirmed, with real local content, not the same text with the city name swapped.
 `prohomehero.html` (the single-file review copy) does not include the service pages.
+
+## Logo
+
+`images/logo.png` is the full Home Hero logo (evergreen on transparent), `images/mark.png` the H monogram used in the header, and
+`images/favicon.png` / `images/apple-touch-icon.png` the browser and phone icons (the favicon is also embedded in the page head).
+The logo is listed in the site's structured data. To change the logo color, edit the files with the same names; keep the transparent background.

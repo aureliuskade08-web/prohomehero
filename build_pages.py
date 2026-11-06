@@ -20,6 +20,8 @@ estimate = between('<section id="estimate"', "</section>")
 footer = between('<footer class="footer">', "</footer>")
 sticky = between('<div class="sticky-cta md:hidden"', "</div>")
 
+ICON = re.search(r'<link rel="icon"[^>]*/>', src).group(0)
+
 def fix(block, root_rel):
     """Point home-page anchors at the home page and asset paths at the site root, from a page two folders deep."""
     block = re.sub(r'href="#(portfolio|services|design|financing|process|about)"', lambda m: f'href="{root_rel}#{m.group(1)}"', block)
@@ -67,7 +69,8 @@ def build(slug):
   <link rel="preload" href="{rr}fonts/caslon-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="{rr}css/styles.css" />
   <link rel="stylesheet" href="{rr}css/tailwind.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F7F3EB'/%3E%3Cpath d='M8 23V10h5.2c3 0 4.6 1.5 4.6 3.9s-1.7 4-4.7 4H11V23z M11 15.9h2c1.3 0 2-.6 2-1.9s-.7-1.8-2-1.8h-2z' fill='%23293E35'/%3E%3Crect x='20' y='10' width='3' height='13' fill='%236B7C70'/%3E%3C/svg%3E" />
+  {ICON}
+  <link rel="apple-touch-icon" href="{rr}images/apple-touch-icon.png" />
   <script type="application/ld+json">
 {json.dumps(jsonld, indent=2)}
   </script>

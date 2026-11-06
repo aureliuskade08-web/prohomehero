@@ -22,6 +22,8 @@ def inline_css(path):
 def font(n): return "data:font/woff2;base64," + base64.b64encode((r/f"fonts/{n}.woff2").read_bytes()).decode()
 tokens = (r/"css/tokens.css").read_text()
 for n in ("caslon-400","hanken-400","hanken-500"): tokens = tokens.replace(f"../fonts/{n}.woff2", font(n))
+for _n in ('mark','logo'):
+    html = html.replace(f'src="images/{_n}.png"', 'src="data:image/png;base64,' + base64.b64encode((r/f'images/{_n}.png').read_bytes()).decode() + '"')
 hero = "data:image/jpeg;base64," + base64.b64encode((r/"images/hero-kitchen.jpg").read_bytes()).decode()
 styles = (r/"css/styles.css").read_text()
 stamp = "\n".join(l for l in styles.splitlines() if l.startswith("/*") or l.startswith(" *"))
