@@ -9,7 +9,7 @@
 const SITE = {
   phone: "+14705735890",
   phoneDisplay: "(470) 573-5890",
-  email: "hello@prohomehero.com",
+  email: "info@prohomehero.com",
   FORM_ENDPOINT: "",
   gtmId: "",
   ga4Id: "",

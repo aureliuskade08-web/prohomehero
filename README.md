@@ -10,7 +10,7 @@ Edit the `SITE` block at the top of `js/main.js`:
 
 | Setting | What it does |
 | --- | --- |
-| `phone`, `phoneDisplay`, `email` | Contact details. Phone is `+14705735890`. The email is a placeholder. |
+| `phone`, `phoneDisplay`, `email` | Contact details. Phone is `+14705735890`. Email is info@prohomehero.com. |
 | `FORM_ENDPOINT` | Formspree / Supabase edge function URL. Empty = the form opens the visitor's email app. |
 | `gtmId` or `ga4Id` | Google Tag Manager or GA4 id. Empty = no analytics script is loaded. |
 | `licenseNo` | Contractor license number. Shown in the footer only when set. |
