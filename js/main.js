@@ -1,21 +1,54 @@
 /* ------------------------------------------------------------------
- * SITE SETTINGS. Replace these with Pro Home Hero's real details.
- * The phone and email below are PLACEHOLDERS.
- * Set FORM_ENDPOINT (Formspree, Supabase edge function, etc.) to receive leads;
- * with it empty, the forms open the visitor's email app addressed to `email`.
+ * SITE SETTINGS. Everything the site owner or the SEO agency may need to change lives here.
+ *  - phone / phoneDisplay / email: contact details used across the page (static HTML carries the same values,
+ *    so call-tracking scripts that swap the number in the DOM keep working)
+ *  - FORM_ENDPOINT: Formspree, Supabase edge function, etc. Empty = the form opens the visitor's email app.
+ *  - gtmId / ga4Id: Google Tag Manager or GA4 measurement id. Empty = no analytics are loaded.
+ *  - licenseNo: the contractor licence number, shown in the footer only when set.
  * ------------------------------------------------------------------ */
 const SITE = {
-  phone: "+15555550123",
-  phoneDisplay: "(555) 555-0123",
+  phone: "+14705735890",
+  phoneDisplay: "(470) 573-5890",
   email: "hello@prohomehero.com",
   FORM_ENDPOINT: "",
+  gtmId: "",
+  ga4Id: "",
+  licenseNo: "",
+  source: "home-hero",
 };
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-/* contact details */
-$$("[data-tel]").forEach((a) => (a.href = `tel:${SITE.phone}`));
-$$("[data-phone-text]").forEach((n) => (n.textContent = SITE.phoneDisplay));
+/* analytics: loaded only when an id is set, and every key action is pushed to dataLayer */
+window.dataLayer = window.dataLayer || [];
+const track = (event, params = {}) => window.dataLayer.push({ event, site: SITE.source, ...params });
+if (SITE.gtmId) {
+  dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+  const g = document.createElement("script"); g.async = true; g.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(SITE.gtmId)}`; document.head.append(g);
+} else if (SITE.ga4Id) {
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag("js", new Date()); gtag("config", SITE.ga4Id);
+  const g = document.createElement("script"); g.async = true; g.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(SITE.ga4Id)}`; document.head.append(g);
+}
+
+/* campaign attribution: keep utm_* and click ids for the whole visit so the lead carries its source */
+const ATTR_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "gbraid", "wbraid", "msclkid", "fbclid"];
+const attribution = (() => {
+  let saved = {};
+  try { saved = JSON.parse(sessionStorage.getItem("hh_attr") || "{}"); } catch {}
+  const q = new URLSearchParams(location.search);
+  ATTR_KEYS.forEach((k) => { if (q.get(k)) saved[k] = q.get(k); });
+  if (!saved.landing) saved.landing = location.pathname;
+  if (!saved.referrer && document.referrer) saved.referrer = document.referrer;
+  try { sessionStorage.setItem("hh_attr", JSON.stringify(saved)); } catch {}
+  return saved;
+})();
+
+/* contact details: only rewrite when the settings differ from the static HTML (call tracking may have swapped it) */
+$$("[data-tel]").forEach((a) => { if (a.getAttribute("href") !== `tel:${SITE.phone}`) a.href = `tel:${SITE.phone}`; });
+$$("[data-phone-text]").forEach((n) => { if (n.textContent !== SITE.phoneDisplay && !n.closest("[data-call-tracked]")) n.textContent = SITE.phoneDisplay; });
+$$("[data-license-text]").forEach((n) => { if (SITE.licenseNo) { n.textContent = `, license no. ${SITE.licenseNo}`; n.hidden = false; } });
+$$("[data-tel]").forEach((a) => a.addEventListener("click", () => track("click_to_call", { placement: a.closest("footer") ? "footer" : a.closest("#stickyCta") ? "mobile_bar" : a.closest("header") ? "nav" : "page" })));
 $$("[data-mail]").forEach((a) => (a.href = `mailto:${SITE.email}`));
 $$("[data-email-text]").forEach((n) => (n.textContent = SITE.email));
 $("#yr").textContent = new Date().getFullYear();
@@ -78,32 +111,33 @@ $$("[data-service]").forEach((a) =>
   a.addEventListener("click", () => { $("#serviceSel").value = a.dataset.service; })
 );
 
-/* ---------------- 3D designer (lazy: loads when scrolled near) ---------------- */
+/* ---------------- finishes designer (a rendered kitchen, recoloured live; loads when scrolled near) ---------------- */
 const host = $("#kitchen3d");
 let designNote = "";
 const swatch = (hex) => (hex ? `<i style="background:${hex}"></i>` : "");
 async function bootKitchen() {
   try {
-    const { mountKitchen } = await import("./kitchen3d.js");
-    const k = mountKitchen(host, (_, summary) => {
-      designNote = summary;
-      $("#designSummary").textContent = summary;
-      $$("#finishes .opt").forEach((b) => b.setAttribute("aria-pressed", String(k.state[b.dataset.g] === b.dataset.k)));
+    const { mountDesigner } = await import("./designer.js");
+    const assetUrl = (n) => (window.__HH_ASSETS && window.__HH_ASSETS[n]) || `images/designer/${n}`;
+    const k = mountDesigner({
+      canvas: $("#kitchenCv"), viewsHost: $("#kitchenViews"), assetUrl,
+      onChange: (group, summary) => {
+        designNote = summary;
+        $("#designSummary").textContent = summary;
+        $$("#finishes .opt").forEach((b) => b.setAttribute("aria-pressed", String(k.state[b.dataset.g] === b.dataset.k)));
+        if (group !== "init") track("designer_change", { finish_group: group, finish_choice: k.state[group] });
+      },
     });
-    const groups = [
-      ["cabinets", "Cabinets"], ["island", "Island"], ["hardware", "Hardware"], ["counter", "Countertop"],
-    ];
+    const groups = [["cabinets", "Cabinets"], ["island", "Island"], ["hardware", "Hardware"], ["counter", "Countertop"]];
     $("#finishes").innerHTML = groups.map(([g, label]) => `
       <fieldset class="opt-group"><legend>${label}</legend><div class="opt-row">
         ${Object.entries(k.FINISHES[g]).map(([key, v]) => `<button type="button" class="opt" data-g="${g}" data-k="${key}" aria-pressed="false">${swatch(v.hex)}${v.label}</button>`).join("")}
       </div></fieldset>`).join("");
-    $("#finishes").addEventListener("click", (e) => {
-      const b = e.target.closest(".opt"); if (b) k.set(b.dataset.g, b.dataset.k);
-    });
+    $("#finishes").addEventListener("click", (e) => { const b = e.target.closest(".opt"); if (b) k.set(b.dataset.g, b.dataset.k); });
     k.init();
   } catch (err) {
     console.error(err);
-    host.innerHTML = `<p class="kitchen3d__hint">The 3D designer needs WebGL. You can still tell us what you have in mind below.</p>`;
+    $("#kitchen3d").insertAdjacentHTML("beforeend", `<p class="kitchen3d__note">The preview could not load. You can still tell us what you have in mind below.</p>`);
   }
 }
 new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); bootKitchen(); } }, { rootMargin: "400px" }).observe(host);
@@ -114,7 +148,11 @@ $("#designCta").addEventListener("click", () => {
     box.value = (box.value ? box.value + "\n\n" : "") + "Kitchen designer picks: " + designNote;
   }
   $("#serviceSel").value = "Full kitchen remodel";
+  track("designer_quote");
 });
+
+/* financing: prefill the form's topic */
+$$("[data-financing]").forEach((a) => a.addEventListener("click", () => { $("#serviceSel").value = "Financing question"; track("click_financing"); }));
 
 /* ---------------- forms ---------------- */
 async function send(payload, statusEl, okMsg, subject) {
@@ -144,7 +182,9 @@ $("#estimateForm").addEventListener("submit", async (e) => {
   if (!d.name?.trim() || !d.phone?.trim() || !/^\S+@\S+\.\S+$/.test(d.email || "")) {
     st.textContent = "Please add your name, phone number and a valid email so we can reach you."; return;
   }
-  if (await send({ form: "estimate", ...d }, st, "Thanks, we got it. We'll be in touch to set up your free consultation.", "Free estimate request")) {
+  const payload = { form: "estimate", site: SITE.source, ...d, ...attribution, page: location.href };
+  if (await send(payload, st, "Thanks, we got it. We'll be in touch to set up your free consultation.", "Free estimate request")) {
+    track(SITE.FORM_ENDPOINT ? "generate_lead" : "lead_email_opened", { form: "estimate", service: d.service });
     if (SITE.FORM_ENDPOINT) f.reset();
   }
 });

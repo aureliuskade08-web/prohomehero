@@ -1,5 +1,6 @@
 """Injects the portfolio markup into src/index.src.html -> index.html (static HTML for SEO)."""
 import html, pathlib
+from PIL import Image
 root = pathlib.Path(__file__).parent
 
 CAPTIONS = {
@@ -20,12 +21,22 @@ CAPTIONS = {
  15: "Gray shaker cabinets with stacked glass-front uppers and a gas range",
  16: "Stainless farmhouse sink with a matte black pull-down faucet",
  17: "Quartz island with a pendant light and stainless refrigerator",
+ 18: "Sage island with a brass faucet and pendants, tall white pantry cabinets",
+ 19: "White shaker kitchen with a stainless gas range, quartz counters and tile floor",
+ 20: "Navy cabinets with a quartz slab backsplash and hardwood floor",
+ 21: "White shaker uppers over sage base cabinets with brass pulls",
+ 22: "Gray shaker cabinets with granite counters and subway tile",
+ 23: "White cabinets with a quartz peninsula and stainless refrigerator",
+ 24: "Green base cabinets with brass pulls and a checkerboard floor",
+ 25: "Navy cabinetry with a stainless refrigerator and hardwood floor",
+ 26: "White shaker kitchen with a quartz peninsula and stainless refrigerator",
 }
-SHORT = {1:"White shaker, walnut island",2:"Quartz slab, brass faucet",3:"Navy cabinets, floating shelves",4:"Granite, farmhouse sink",5:"Farmhouse sink, black hardware",6:"Workstation sink, granite",7:"Cream cabinets, glass fronts",8:"Brass pot filler, slab backsplash",9:"Quartz island, brass and leather",10:"Two-tone, white and navy",11:"Sink set into quartz",12:"Full-height pantry cabinets",13:"Two-tone, plank flooring",14:"Island with pendant light",15:"Gray shaker, glass uppers",16:"Stainless farmhouse sink",17:"Island, stainless refrigerator"}
+SHORT = {1:"White shaker, walnut island",2:"Quartz slab, brass faucet",3:"Navy cabinets, floating shelves",4:"Granite, farmhouse sink",5:"Farmhouse sink, black hardware",6:"Workstation sink, granite",7:"Cream cabinets, glass fronts",8:"Brass pot filler, slab backsplash",9:"Quartz island, brass and leather",10:"Two-tone, white and navy",11:"Sink set into quartz",12:"Full-height pantry cabinets",13:"Two-tone, plank flooring",14:"Island with pendant light",15:"Gray shaker, glass uppers",16:"Stainless farmhouse sink",17:"Island, stainless refrigerator",18:"Sage island, brass pendants",19:"White shaker, quartz counters",20:"Navy cabinets, slab backsplash",21:"White and sage, brass pulls",22:"Gray shaker, granite, subway tile",23:"Quartz peninsula, white cabinets",24:"Green cabinets, checkerboard floor",25:"Navy cabinets, hardwood floor",26:"White shaker, quartz peninsula"}
 # Photos shown before "See more projects" (best 8), rest are revealed on click.
-ORDER = [9, 2, 10, 7, 4, 8, 3, 14, 1, 11, 15, 5, 6, 12, 13, 16, 17]
+ORDER = [18, 19, 20, 21, 22, 23, 24, 25, 9, 2, 10, 7, 4, 8, 3, 14, 1, 11, 15, 5, 6, 12, 13, 16, 17, 26]
 FIRST = 8
 
+SZ = {n: Image.open(root / f'images/kitchen-{n:02d}.jpg').size for n in ORDER}
 items = []
 for pos, n in enumerate(ORDER):
     cap = html.escape(CAPTIONS[n], quote=True)
@@ -33,7 +44,7 @@ for pos, n in enumerate(ORDER):
     items.append(
         f'        <li class="g-item"{extra}>\n'
         f'          <button type="button" class="g-btn" data-i="{pos}" data-src="images/kitchen-{n:02d}.jpg" data-cap="{cap}" aria-label="View photo: {cap}">\n'
-        f'            <img class="g-thumb" src="images/kitchen-{n:02d}.jpg" alt="" loading="lazy" width="900" height="1600" />\n'
+        f'            <img class="g-thumb" src="images/kitchen-{n:02d}.jpg" alt="{cap}" loading="lazy" width="{SZ[n][0]}" height="{SZ[n][1]}" />\n'
         f'            <span class="g-title">{html.escape(SHORT[n])}</span>\n'
         f'          </button>\n'
         f'        </li>'

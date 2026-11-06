@@ -1,10 +1,10 @@
-"""Builds one self-contained prohomehero.html (CSS, JS, three.js and all photos inlined)."""
+"""Builds one self-contained prohomehero.html (CSS, JS, rendered kitchen and all photos inlined)."""
 import base64, re, pathlib
 r = pathlib.Path(__file__).parent
 html = (r/"index.html").read_text()
 
 # photos: embed each once, point <img>/buttons at them by id
-imgs = {f"{n:02d}": "data:image/jpeg;base64," + base64.b64encode((r/f"images/kitchen-{n:02d}.jpg").read_bytes()).decode() for n in range(1,18)}
+imgs = {f"{n:02d}": "data:image/jpeg;base64," + base64.b64encode((r/f"images/kitchen-{n:02d}.jpg").read_bytes()).decode() for n in range(1,27)}
 html = re.sub(r'<meta property="og:image"[^>]*>\n?', '', html)
 html = re.sub(r'<link rel="preload"[^>]*>\n?', '', html)
 html = re.sub(r'(?<![-\w])src="images/kitchen-(\d+)\.jpg"', r'data-img="\1"', html)
@@ -18,20 +18,22 @@ def inline_css(path):
 def font(n): return "data:font/woff2;base64," + base64.b64encode((r/f"fonts/{n}.woff2").read_bytes()).decode()
 tokens = (r/"css/tokens.css").read_text()
 for n in ("caslon-400","hanken-400","hanken-500"): tokens = tokens.replace(f"../fonts/{n}.woff2", font(n))
-hero = "data:image/jpeg;base64," + base64.b64encode((r/"images/hero-island.jpg").read_bytes()).decode()
+hero = "data:image/jpeg;base64," + base64.b64encode((r/"images/hero-olive.jpg").read_bytes()).decode()
 styles = (r/"css/styles.css").read_text()
 stamp = "\n".join(l for l in styles.splitlines() if l.startswith("/*") or l.startswith(" *"))
 css = stamp + "\n" + tokens + "\n" + (r/"css/base.css").read_text() + "\n" + inline_css("css/styles.css") + "\n" + (r/"css/tailwind.css").read_text()
-html = html.replace('src="images/hero-island.jpg"', f'src="{hero}"')
+html = html.replace('src="images/hero-olive.jpg"', f'src="{hero}"')
 html = html.replace('<link rel="stylesheet" href="css/styles.css" />', f"<style>{css}</style>").replace('<link rel="stylesheet" href="css/tailwind.css" />', "")
 
-kit = (r/"js/kitchen3d.js").read_text()
-kit = kit.replace('import * as THREE from "../vendor/three.module.min.js";', '')
-kit = kit.replace('export function mountKitchen(canvasHost, onChange)', 'function mountKitchen(THREE, canvasHost, onChange)')
+des = (r/"js/designer.js").read_text().replace("export const", "const").replace("export function", "function")
 main = (r/"js/main.js").read_text()
-main = main.replace('const { mountKitchen } = await import("./kitchen3d.js");\n    const k = mountKitchen(host,',
-  'const THREE = await import(URL.createObjectURL(new Blob([atob(document.getElementById("three-src").textContent.trim())], { type: "text/javascript" })));\n    const k = mountKitchen(THREE, host,')
-assert 'mountKitchen(THREE' in main
+main = main.replace('const { mountDesigner } = await import("./designer.js");', '')
+assert 'await import("./designer.js")' not in main
+assets = {}
+for v in "AB":
+    assets[f"mask_{v}.png"] = "data:image/png;base64," + base64.b64encode((r/f"images/designer/mask_{v}.png").read_bytes()).decode()
+    for c in ("quartz", "granite", "slate"):
+        assets[f"{v}_{c}.jpg"] = "data:image/jpeg;base64," + base64.b64encode((r/f"images/designer/{v}_{c}.jpg").read_bytes()).decode()
 # resolve data-img attributes before anything reads them
 prelude = '''const IMG = %s;
 document.querySelectorAll("[data-img]").forEach((el) => {
@@ -40,8 +42,7 @@ document.querySelectorAll("[data-img]").forEach((el) => {
 });
 ''' % __import__("json").dumps(imgs)
 
-three = base64.b64encode((r/"vendor/three.module.min.js").read_bytes()).decode()
-script = f'<script type="text/plain" id="three-src">{three}</script>\n<script type="module">\n{prelude}\n{kit}\n{main}\n</script>'
+script = f'<script type="module">\nwindow.__HH_ASSETS = {__import__("json").dumps(assets)};\n{prelude}\n{des}\n{main}\n</script>'
 html = html.replace('<script type="module" src="js/main.js"></script>', "")
 html = html.replace('</body>', script + '\n</body>')
 out = pathlib.Path("/mnt/user-data/outputs/prohomehero.html"); out.write_text(html)

@@ -15,16 +15,17 @@
   --nav-h: 76px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
 
-  /* The client's palette: espresso, walnut, rust, camel, olive, taupe, linen, with a bone paper pulled from linen. */
-  --color-paper: #F4EEE4; --color-paper-2: #EAE1D3; --color-paper-3: #DDD0BE;       /* bone, a step of linen, linen */
-  --color-ink: #241713; --color-ink-2: #4A2C20; --color-muted: #6A5649;             /* espresso, walnut, a warm grey-brown */
-  --color-rule: #D3C5AF; --color-rule-ink: #241713;
-  --color-accent: #4F5A3C; --color-accent-2: #3F4932; --color-accent-ink: #F4EEE4; --color-focus: #8A6A45;   /* olive, deeper olive, bone, camel */
-  --color-camel: #8A6A45; --color-taupe: #B5AA9C; --color-rust: #6B3426; --color-bark: #2E1F19;
-  --color-error: #8A2F20; --color-success: #3F4932;
+  /* The client's palette, lifted: linen, blush, oat and sage with a soft mocha for type. Lighter and warmer than the first pass. */
+  --color-paper: #FCF8F3; --color-paper-2: #F5ECE1; --color-paper-3: #EADBCB;       /* cream, oat, linen */
+  --color-blush: #F3E3DB; --color-blush-2: #E9CFC4;                                  /* soft blush, dusty rose */
+  --color-ink: #44332C; --color-ink-2: #6F4E40; --color-muted: #78675D;              /* soft mocha, walnut, warm grey-brown */
+  --color-rule: #E6D9C9; --color-rule-ink: #44332C;
+  --color-accent: #667658; --color-accent-2: #566548; --color-accent-ink: #FCF8F3; --color-focus: #9A7449;   /* sage, deeper sage, cream, camel */
+  --color-camel: #A98458; --color-taupe: #B8AB9C; --color-rust: #94574A; --color-bark: #F0E3D6;
+  --color-error: #8A2F20; --color-success: #566548;
 
   --font-display: "Libre Caslon Display", "Libre Caslon Text", ui-serif, Georgia, serif; --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-ink: 2px;
+  --radius-card: 0; --radius-pill: 999px; --radius-arch: 999px 999px 0 0; --rule-hair: 1px; --rule-ink: 2px;
   --shadow-card: none;
   --tracking-display: -0.01em; --display-weight: 400;
 }
